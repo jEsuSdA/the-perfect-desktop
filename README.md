@@ -6,7 +6,7 @@ By [jEsuSdA](http://www.jesusda.com)
 ## Compton
 
 [Compton](https://github.com/chjj/compton) is a compositor for X11 wich adds some effects to our desktop.
-Here you can find my compton.conf file, that you must copy into your ~/.config/compton.conf 
+Here you can find my [compton.conf](compton/compton.conf) file, that you must copy into your ~/.config/compton.conf 
 
 
 # License
