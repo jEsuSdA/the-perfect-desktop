@@ -1,0 +1,142 @@
+
+
+=================================================
+SOLUCIONAR BUG DE BORDES REDONDEADOS EN TOOLTIPS
+=================================================
+
+/gtk-2.0/gtkrc
+
+buscar style "tooltips" = "wider"
+
+y en 
+
+	engine "murrine"
+	{
+		roundness	= 5
+		rgba		= TRUE
+	}
+
+cambiar roundness por 0
+
+
+
+
+gtk-3.0/gtk-widgets.css
+
+Buscar tooltip
+
+y en
+
+.tooltip {
+    border-width: 1px;
+    border-style: solid;
+    border-color: alpha(@theme_tooltip_bg_color, 0.9);
+    border-radius: 3px;
+    background-color: alpha(@theme_tooltip_bg_color, 0.9);
+    background-image: none;
+    color: @theme_tooltip_fg_color;
+}
+
+
+cambiar border-radius por 0
+
+
+
+====================================================
+CAMBIAR LOS BORDES REDONDEADOS DE LA NOTIFICACIONES
+====================================================
+
+
+en xfce-notify-4.0/gtkrc
+
+Buscar style "notify-window"
+
+y dentro, encontraremos 
+
+    XfceNotifyWindow::border-radius = 10.0
+
+
+lo cambiamos por 
+
+    XfceNotifyWindow::border-radius = 0
+
+Para evitar el borde redondeado en las notificaciones.
+
+
+
+
+===============================================================
+Solucionar el problema de dobles sombras con GTK 3.12 y Compiz
+===============================================================
+
+Editar gtk-3.0/gtk-widgets.css y añadir al final:
+
+
+/* Workaround for GTK 3.12 conflict with Compiz */
+
+.window-frame, .window-frame:backdrop {
+    box-shadow: 0 0 0 1px #8D8D8D;
+	margin: 1px;
+	border-radius: 1px 1px 0 0;
+	border-color: #8D8D8D;
+}
+
+.titlebar {
+	border-radius: 3px 3px 0 0;
+}
+
+
+
+
+===============================================================
+Solucionar el problema de bordes en botones del toolbar
+===============================================================
+
+
+/* Workaround for GTK conflict showing toolbar buttons borders */
+
+.toolbar .button , .toolbar .button:insensitive  {
+    border: 1px solid transparent;
+	background: none;
+	border-color: none;
+	box-shadow: inset 0 0 ,
+                inset 0 0 ;
+}
+
+
+
+
+===============================================================
+Synfig big buttons
+===============================================================
+
+
+
+window > box > widget > paned > paned > paned > notebook > header > widget > button,
+window > box > widget > paned > paned > notebook > header > widget > button
+{
+min-height: 2px;
+min-width: 2px;
+height: 2px;
+width: 2px;
+}
+
+
+
+===============================================================
+COMPTON popup CSD 
+===============================================================
+Esto se usa cuando tenemos compton habilitado con mis preferencias.
+En ese caso, los popup de las apps GTK3 CSD salen casi sin sombra, con un aspecto muy
+distinto al resto de popups.
+Esto lo arregla. ;)
+
+
+/*Fix for popup shadows when COMPTON is enabled */
+
+  .csd.popup decoration {
+    border-radius: 0;
+	border: 1px solid rgba(170, 170, 170, 1);
+    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.8); }
+
+
