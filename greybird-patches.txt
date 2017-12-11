@@ -66,6 +66,19 @@ Para evitar el borde redondeado en las notificaciones.
 
 
 ===============================================================
+Quitar las líneas punteadas de los bordes cuando hay scroll
+===============================================================
+Editar gtk-3.0/gtk-contained.css y escribir al final:
+
+scrolledwindow undershoot.top, scrolledwindow undershoot.right, scrolledwindow undershoot.bottom, scrolledwindow undershoot.left { background-image: none; }
+
+
+
+
+
+
+
+===============================================================
 Solucionar el problema de dobles sombras con GTK 3.12 y Compiz
 ===============================================================
 
@@ -109,7 +122,8 @@ Solucionar el problema de bordes en botones del toolbar
 ===============================================================
 Synfig big buttons
 ===============================================================
-
+# Evitar problema de botones exageradamente grandes en SYNFIG STUDIO 
+# Editar gtk-3.0/gtk-contained.css y escribir al final:
 
 
 window > box > widget > paned > paned > paned > notebook > header > widget > button,
@@ -120,6 +134,87 @@ min-width: 2px;
 height: 2px;
 width: 2px;
 }
+
+
+
+===============================================================
+PARCHES PARA LOGRAR EL DEGRADADO EN LA BARRA DE HERRAMIENTAS
+===============================================================
+
+
+/* hacks for toolbars with old fashioned gradient */
+toolbar
+{
+	background-image: -gtk-gradient (linear,
+    left top,
+    left bottom,
+    color-stop(0.0, #cecece),
+    color-stop(0.50, #cecece),
+    color-stop(1.00,#B8B8B8));
+	border-bottom:1px solid #939393;
+
+}
+
+notebook
+{
+	margin-top:3px
+}
+
+/* Hack for removing frame borders */
+.frame
+{
+	border:0;
+}
+
+
+
+===============================================================
+PARCHES PARA SYNAPTIC
+===============================================================
+
+
+
+/* hacks for synaptic */
+window > box > paned > box > widget > button
+{
+	margin-right:3px;
+}
+
+
+
+window > box > paned > paned > box
+{
+	border-top: 1px solid grey;
+	border-right: 1px solid grey;
+}
+
+/* Este parche lo desactivamos 
+porque la idea es evitar el corte del gradiente en synaptic... pero 
+arreglar eso, estropea la visualización en otras apps.*/
+/* window > box > box
+{
+	background-image: -gtk-gradient (linear,
+    left top,
+    left bottom,
+    color-stop(0.0, #cecece),
+    color-stop(0.50, #cecece),
+    color-stop(1.00,#B8B8B8));
+	border-bottom:1px solid #939393;
+}
+*/
+
+
+===============================================================
+PARCHES PARA SOMBRAS EN GTK3 + XFWM4 COMPOSITOR
+===============================================================
+
+/*Shadows on pop-ups when XFWM4 compositor enabled*/
+
+.csd.popup decoration {
+    border-radius: 0;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.3), 0 10px 10px rgba(0, 0, 0, 0.22), 0 0 0 1px rgba(0, 0, 0, 0.2);}
+
+
 
 
 
@@ -140,3 +235,12 @@ Esto lo arregla. ;)
     box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.8); }
 
 
+
+
+
+=============================================================
+PARCHES PARA MENÚS EMERGENTES EN FIREFOX Y THUNDERBIRD
+=============================================================
+
+
+separator { color: #e3e3e3;}
