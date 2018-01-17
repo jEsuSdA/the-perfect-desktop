@@ -11,7 +11,8 @@ Here you can find my [compton.conf](compton/compton.conf) file, that you must co
 
 ## THEMEs
 
-###Greybird###
+### Greybird
+
 [Greybird GTK theme](https://github.com/shimmerproject/Greybird) is a complete GTK+ theme for desktop.
 
 The **greybird-patched** folder contains a patched version of it. I made some patches to avoid some bugs and adding some extra features.
@@ -20,7 +21,8 @@ You can find a XFWM4 themes too (Window decoration themes for the XFCE window ma
 
 *Unzip 7z files copy to /usr/share/themes*
 
-###Papirus###
+### Papirus
+
 [Papirus Icon theme](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme/) is a complete awesome Icon Theme.
 
 The **papirus-patched** folder contains a patched version of it. I made some patches to add some extra features I like.
