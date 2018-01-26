@@ -36,6 +36,7 @@ The **papirus-patched** folder contains a patched version of it. I made some pat
 
 *Unzip 7z files and copy foldes to /usr/share/icons or ~/.icons/*
 
+![Wallpapers](screenshots/papirus-preview.png)
 
 ### XFWM4 Window Themes
 
@@ -45,11 +46,15 @@ The **xfwm4-themes** folder contains a some themes for the XFCE Window Manager. 
 *Unzip 7z files and copy folders to /usr/share/themes/ or ~/.themes/*
 
 
+![Wallpapers](screenshots/Greybird-kgt-xfwm-themes-preview.png)
+
+
 ### Wallpapers
 
 Some wallpapers from several sources.
 
 
+![Wallpapers](wallpapers/montaje.jpg)
 
 
 # License

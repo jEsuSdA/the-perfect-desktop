@@ -3,4 +3,4 @@
 A wallpaper collection. Several types, several styles, several sources
 
 
-![Wallpapers](montaje.jp)
+![Wallpapers](montaje.jpg)
