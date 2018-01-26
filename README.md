@@ -49,6 +49,17 @@ The **xfwm4-themes** folder contains a some themes for the XFCE Window Manager. 
 ![Wallpapers](screenshots/Greybird-kgt-xfwm-themes-preview.png)
 
 
+### Terminal Background
+
+A background to configure the  **xfce4-terminal** (or other ones) looking awesome.
+
+
+*Download the terminal-kgt-background.png file and configure xfce-terminal like [Terminal configuration](screenshots/xfce-terminal-configuration.png)*
+
+
+![XFCE Terminal](screenshots/xfce-terminal.png)
+
+
 ### Wallpapers
 
 Some wallpapers from several sources.
