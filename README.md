@@ -3,6 +3,9 @@ A collection of some configuration files to make your desktop easily great! ;).
 
 By [jEsuSdA](http://www.jesusda.com)
 
+![The Perfect Desktop](screenshots/the-perfect-desktop.png)
+Simple, elegant, beautiful
+
 ## Compton
 
 [Compton](https://github.com/chjj/compton) is a compositor for X11 wich adds some effects to our desktop.
