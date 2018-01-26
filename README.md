@@ -23,7 +23,7 @@ The **greybird-patched** folder contains a patched version of it. I made some pa
 
 You can find a XFWM4 themes too (Window decoration themes for the XFCE window manager).
 
-*Unzip 7z files copy to /usr/share/themes or ~/.themes/*
+*Unzip 7z files and copy folder to /usr/share/themes or ~/.themes/*
 
 ### Papirus
 
@@ -31,7 +31,7 @@ You can find a XFWM4 themes too (Window decoration themes for the XFCE window ma
 
 The **papirus-patched** folder contains a patched version of it. I made some patches to add some extra features I like.
 
-*Unzip 7z files copy to /usr/share/icons or ~/.icons/*
+*Unzip 7z files and copy foldes to /usr/share/icons or ~/.icons/*
 
 
 ### XFWM4 Window Themes
@@ -39,7 +39,7 @@ The **papirus-patched** folder contains a patched version of it. I made some pat
 The **xfwm4-themes** folder contains a some themes for the XFCE Window Manager. They are bases upon the Greybird and XFWM4 main themes.
 
 
-*Unzip 7z files copy to /usr/share/themes/ or ~/.themes/*
+*Unzip 7z files and copy folders to /usr/share/themes/ or ~/.themes/*
 
 
 

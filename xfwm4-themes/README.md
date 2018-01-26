@@ -3,6 +3,6 @@
 **xfwm4-themes**  for the [XFCE Window Manager](https://wiki.archlinux.org/index.php/Xfwm). 
 
 
-*Unzip 7z files copy to /usr/share/themes/ or ~/.themes/*
+*Unzip 7z files and copy folders to /usr/share/themes/ or ~/.themes/*
 
 ![XFWM Themes](../screenshots/Greybird-kgt-xfwm-themes.png)
