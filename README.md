@@ -1,5 +1,5 @@
 # The Perfect GNU/Linux Destop
-A collection of some configuration files to make your desktop easily great! ;).
+A collection of some configuration files, themes and graphic sets to make your desktop great again! ;).
 
 By [jEsuSdA](http://www.jesusda.com)
 
@@ -59,4 +59,4 @@ Some wallpapers from several sources.
 
 # License
 
-All the scripts are publised under the [GNU General Public License V3](https://www.gnu.org/licenses/gpl.html).
+All the scripts and contents are publised under the [GNU General Public License V3](https://www.gnu.org/licenses/gpl.html).
