@@ -45,6 +45,12 @@ The **xfwm4-themes** folder contains a some themes for the XFCE Window Manager. 
 *Unzip 7z files and copy folders to /usr/share/themes/ or ~/.themes/*
 
 
+### Wallpapers
+
+Some wallpapers from several sources.
+
+
+
 
 # License
 
