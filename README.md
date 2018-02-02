@@ -28,6 +28,17 @@ You can find a XFWM4 themes too (Window decoration themes for the XFCE window ma
 
 *Unzip 7z files and copy folder to /usr/share/themes or ~/.themes/*
 
+
+##### Papirus theme for aMule
+Copy the zip file to '/usr/share/amule/skins/' and select the theme in aMule settings.
+
+##### Papirus theme for gFTP
+Download and extract the 7zip file. Then exec install.sh
+
+##### Papirus theme for Zim
+Download and extract the 7zip file. Then exec install.sh
+
+
 ### Papirus
 
 [Papirus Icon theme](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme/) is a complete awesome Icon Theme.
