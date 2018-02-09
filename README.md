@@ -1,10 +1,7 @@
 # The Perfect GNU/Linux Destop
-A collection of some configuration files, themes and graphic sets to make your desktop great again! ;).
+A collection of some configuration files to make your desktop easily great! ;).
 
 By [jEsuSdA](http://www.jesusda.com)
-
-![The Perfect Desktop](screenshots/the-perfect-desktop.png)
-Simple, elegant, beautiful
 
 ## Compton
 
@@ -15,6 +12,9 @@ Here you can find my [compton.conf](compton/compton.conf) file
 
 Read [this atricle](http://duncanlock.net/blog/2013/06/07/how-to-switch-to-compton-for-beautiful-tear-free-compositing-in-xfce/) to get some info about Compton.
 
+
+## Fonts
+Fonts configuration files and howtos to allow better font rendering.
 
 ## THEMEs
 
@@ -28,17 +28,6 @@ You can find a XFWM4 themes too (Window decoration themes for the XFCE window ma
 
 *Unzip 7z files and copy folder to /usr/share/themes or ~/.themes/*
 
-
-##### Papirus theme for aMule
-Copy the zip file to '/usr/share/amule/skins/' and select the theme in aMule settings.
-
-##### Papirus theme for gFTP
-Download and extract the 7zip file. Then exec install.sh
-
-##### Papirus theme for Zim
-Download and extract the 7zip file. Then exec install.sh
-
-
 ### Papirus
 
 [Papirus Icon theme](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme/) is a complete awesome Icon Theme.
@@ -47,7 +36,6 @@ The **papirus-patched** folder contains a patched version of it. I made some pat
 
 *Unzip 7z files and copy foldes to /usr/share/icons or ~/.icons/*
 
-![Wallpapers](screenshots/papirus-preview.png)
 
 ### XFWM4 Window Themes
 
@@ -57,28 +45,7 @@ The **xfwm4-themes** folder contains a some themes for the XFCE Window Manager. 
 *Unzip 7z files and copy folders to /usr/share/themes/ or ~/.themes/*
 
 
-![Wallpapers](screenshots/Greybird-kgt-xfwm-themes-preview.png)
-
-
-### Terminal Background
-
-A background to configure the  **xfce4-terminal** (or other ones) looking awesome.
-
-
-*Download the terminal-kgt-background.png file and configure xfce-terminal like [Terminal configuration](screenshots/xfce-terminal-configuration.png)*
-
-
-![XFCE Terminal](screenshots/xfce-terminal.png)
-
-
-### Wallpapers
-
-Some wallpapers from several sources.
-
-
-![Wallpapers](wallpapers/montaje.jpg)
-
 
 # License
 
-All the scripts and contents are publised under the [GNU General Public License V3](https://www.gnu.org/licenses/gpl.html).
+All the scripts are publised under the [GNU General Public License V3](https://www.gnu.org/licenses/gpl.html).
