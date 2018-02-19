@@ -244,3 +244,31 @@ PARCHES PARA MENÚS EMERGENTES EN FIREFOX Y THUNDERBIRD
 
 
 separator { color: #e3e3e3;}
+
+
+
+
+
+=============================================================
+PARCHES GEANY GTK3 VERSION
+=============================================================
+/* See https://github.com/shimmerproject/Greybird/issues/217 */
+
+#GeanyMainWindow treeview
+{
+	font-size:90%
+}
+
+#GeanyMainWindow notebook
+{
+	font-size:95%;
+	margin:3px 2px 1px 1px;
+}
+
+#GeanyMainWindow statusbar
+{
+	font-size:80%;
+	margin:0;
+	padding:0;
+}
+
