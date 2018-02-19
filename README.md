@@ -28,6 +28,8 @@ You can find a XFWM4 themes too (Window decoration themes for the XFCE window ma
 
 *Unzip 7z files and copy folder to /usr/share/themes or ~/.themes/*
 
+Or using the installation script (If you use Debian).
+
 ### Papirus
 
 [Papirus Icon theme](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme/) is a complete awesome Icon Theme.
@@ -36,6 +38,9 @@ The **papirus-patched** folder contains a patched version of it. I made some pat
 
 *Unzip 7z files and copy foldes to /usr/share/icons or ~/.icons/*
 
+Or using the installation script (If you use Debian).
+
+You can also install some **Papirus extra patches** for applications like aMule, FBreader, gFTP, Remarkable, etc.
 
 ### XFWM4 Window Themes
 
