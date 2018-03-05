@@ -1,0 +1,6 @@
+Esto es una versión del tema SIFR de Libreoffice, modificada para eliminar los, a mi entender, antiestéticos fondos de color blanco que fueron introducidos en la versión 6 de libreoffice.
+
+Instalación:
+
+copiar zip en /usr/share/libreoffice/share/config/
+y seleccionar tema sifr en preferencias.
