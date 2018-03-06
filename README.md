@@ -50,6 +50,13 @@ The **xfwm4-themes** folder contains a some themes for the XFCE Window Manager. 
 *Unzip 7z files and copy folders to /usr/share/themes/ or ~/.themes/*
 
 
+## Bashrc files
+These files configure the **bash console** to add some features like personalized and colorized prompt and some tweaks for java look and GTK+3.
+
+*Copy the user.bashrc to ~/.bashrc
+Copy the root.bashrc to /root/.bashrc*
+
+
 
 # License
 
