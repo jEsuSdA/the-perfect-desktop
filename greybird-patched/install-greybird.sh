@@ -28,7 +28,7 @@ echo
 echo "Installing and configuring..."
 echo "--------------------------------------------------"
 
-su root -c "cp -R $DIR /usr/share/themes/; chmod -R 775 /usr/share/themes/$DIR"
+su root -c "cp -R $DIR /usr/share/themes/; chmod -R 775 /usr/share/themes/$DIR ; rm -rf /usr/share/themes/Greybird ; ln -sf /usr/share/themes/$DIR /usr/share/themes/Greybird"
 
 
 echo "Deleting..."
