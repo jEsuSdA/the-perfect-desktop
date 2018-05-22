@@ -1,0 +1,31 @@
+
+Compton with mesa 18.x is broken.
+
+From this url (https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=897659), someone suggest a possible solution:
+
+Setting these config settings under ~/.config/compton.conf allows compton to work properly again
+
+backend = "xr_glx_hybrid";
+glx-no-stencil = false;
+glx-no-rebind-pixmap = false;
+glx-copy-from-front = false;
+glx-use-copysubbuffermesa = false;
+vsync = "none";
+glx-swap-method = "0";
+resize-damage = false;
+paint-on-overlay = true;
+unredir-if-possible = false;
+
+
+Note: not all of these are required, I left vsync on and it still fixed the issue
+
+
+Other possible solutions:
+
+allow_rgb10_configs = false 
+
+
+More info: https://github.com/chjj/compton/issues/477#issuecomment-370188534
+
+There are a compton fork that appears to be more mantained and it is working better:
+https://github.com/yshui/compton
