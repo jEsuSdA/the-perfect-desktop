@@ -1,10 +1,4 @@
-=================================================
-SOLUCIONAR BUG DE ICONOS OSCUROS EN GTK3
-=================================================
 
-Desde dentro de la carpeta de Greybird, ejecutar:
-
-sed -i.orig 's/#3C3C3C/#6E6E6E/gI' ./gtk-3.0/*.css
 
 
 =================================================
@@ -277,5 +271,27 @@ PARCHES GEANY GTK3 VERSION
 	font-size:80%;
 	margin:0;
 	padding:0;
+}
+
+
+
+=================================================
+SOLUCIONAR BUG DE ICONOS OSCUROS EN GTK3
+=================================================
+
+# sed -i.orig 's/#3C3C3C/#6E6E6E/gI' ./gtk-3.0/*.css
+
+
+
+toolbar button image,
+menubar image
+{
+	color: #6e6e6e;
+}
+
+toolbar button:insensitive image,
+menubar:insensitive image
+{
+	color: #989898;
 }
 
