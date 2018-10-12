@@ -305,6 +305,11 @@ printdialog > box
 	background-color:#cecece;
 }
 
+printdialog box.vertical
+{
+	background:#cecece;
+}
+
 
 /***************************************************
 TABS CON DEGRADADO
