@@ -1,9 +1,9 @@
 
 
 
-=================================================
+/***************************************************
 SOLUCIONAR BUG DE BORDES REDONDEADOS EN TOOLTIPS
-=================================================
+***************************************************/
 
 /gtk-2.0/gtkrc
 
@@ -43,9 +43,9 @@ cambiar border-radius por 0
 
 
 
-====================================================
+/***************************************************
 CAMBIAR LOS BORDES REDONDEADOS DE LA NOTIFICACIONES
-====================================================
+***************************************************/
 
 
 en xfce-notify-4.0/gtkrc
@@ -66,9 +66,9 @@ Para evitar el borde redondeado en las notificaciones.
 
 
 
-===============================================================
+/***************************************************
 Quitar las líneas punteadas de los bordes cuando hay scroll
-===============================================================
+***************************************************/
 Editar gtk-3.0/gtk-contained.css y escribir al final:
 
 scrolledwindow undershoot.top, scrolledwindow undershoot.right, scrolledwindow undershoot.bottom, scrolledwindow undershoot.left { background-image: none; }
@@ -79,9 +79,9 @@ scrolledwindow undershoot.top, scrolledwindow undershoot.right, scrolledwindow u
 
 
 
-===============================================================
+/***************************************************
 Solucionar el problema de dobles sombras con GTK 3.12 y Compiz
-===============================================================
+***************************************************/
 
 Editar gtk-3.0/gtk-widgets.css y añadir al final:
 
@@ -102,9 +102,9 @@ Editar gtk-3.0/gtk-widgets.css y añadir al final:
 
 
 
-===============================================================
+/***************************************************
 Solucionar el problema de bordes en botones del toolbar
-===============================================================
+***************************************************/
 
 
 /* Workaround for GTK conflict showing toolbar buttons borders */
@@ -120,9 +120,9 @@ Solucionar el problema de bordes en botones del toolbar
 
 
 
-===============================================================
+/***************************************************
 Synfig big buttons
-===============================================================
+***************************************************/
 # Evitar problema de botones exageradamente grandes en SYNFIG STUDIO 
 # Editar gtk-3.0/gtk-contained.css y escribir al final:
 
@@ -138,9 +138,9 @@ width: 2px;
 
 
 
-===============================================================
+/***************************************************
 PARCHES PARA LOGRAR EL DEGRADADO EN LA BARRA DE HERRAMIENTAS
-===============================================================
+***************************************************/
 
 
 /* hacks for toolbars with old fashioned gradient */
@@ -169,9 +169,9 @@ notebook
 
 
 
-===============================================================
+/***************************************************
 PARCHES PARA SYNAPTIC
-===============================================================
+***************************************************/
 
 
 
@@ -205,9 +205,9 @@ arreglar eso, estropea la visualización en otras apps.*/
 */
 
 
-===============================================================
+/***************************************************
 PARCHES PARA SOMBRAS EN GTK3 + XFWM4 COMPOSITOR
-===============================================================
+***************************************************/
 
 /*Shadows on pop-ups when XFWM4 compositor enabled*/
 
@@ -219,9 +219,9 @@ PARCHES PARA SOMBRAS EN GTK3 + XFWM4 COMPOSITOR
 
 
 
-===============================================================
+/***************************************************
 COMPTON popup CSD 
-===============================================================
+***************************************************/
 Esto se usa cuando tenemos compton habilitado con mis preferencias.
 En ese caso, los popup de las apps GTK3 CSD salen casi sin sombra, con un aspecto muy
 distinto al resto de popups.
@@ -239,9 +239,9 @@ Esto lo arregla. ;)
 
 
 
-=============================================================
+/***************************************************
 PARCHES PARA MENÚS EMERGENTES EN FIREFOX Y THUNDERBIRD
-=============================================================
+***************************************************/
 
 
 separator { color: #e3e3e3;}
@@ -250,9 +250,9 @@ separator { color: #e3e3e3;}
 
 
 
-=============================================================
+/***************************************************
 PARCHES GEANY GTK3 VERSION
-=============================================================
+***************************************************/
 /* See https://github.com/shimmerproject/Greybird/issues/217 */
 
 #GeanyMainWindow treeview
@@ -275,9 +275,9 @@ PARCHES GEANY GTK3 VERSION
 
 
 
-=================================================
+/***************************************************
 SOLUCIONAR BUG DE ICONOS OSCUROS EN GTK3
-=================================================
+***************************************************/
 
 # sed -i.orig 's/#3C3C3C/#6E6E6E/gI' ./gtk-3.0/*.css
 
@@ -294,4 +294,7 @@ menubar:insensitive image
 {
 	color: #989898;
 }
+
+
+
 
