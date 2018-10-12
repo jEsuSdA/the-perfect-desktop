@@ -296,5 +296,65 @@ menubar:insensitive image
 }
 
 
+/***************************************************
+SOLUCIONAR BUG EN DIÁLOGO DE IMPRESIÓN
+***************************************************/
 
+printdialog > box
+{
+	background-color:#cecece;
+}
+
+
+/***************************************************
+TABS CON DEGRADADO
+***************************************************/
+
+tab
+{
+  background-image: linear-gradient(to bottom, shade(shade(#cecece, 1.02), 1.05), shade(shade(#cecece, 1.02), 0.97));
+}
+
+tab:checked
+{
+background-image: linear-gradient(to bottom, shade(shade(#cecece, 1.02), 1.05), shade(shade(#d9d9d9, 1.02), 0.97));
+}
+
+tab:checked label
+{
+border:0;
+}
+
+
+
+
+/***************************************************
+FIXES PARA THUNAR > 1.8
+***************************************************/
+
+
+.thunar notebook
+{
+	border-top:1px solid #888;
+	border-bottom:1px solid #888;
+	margin-top:0;
+}
+
+toolbar button image,
+menubar image
+{
+	color: #6e6e6e;
+}
+
+toolbar button:insensitive image,
+menubar:insensitive image
+{
+	color: #989898;
+}
+
+
+.thunar notebook header
+{
+	margin-top:3px;
+}
 
