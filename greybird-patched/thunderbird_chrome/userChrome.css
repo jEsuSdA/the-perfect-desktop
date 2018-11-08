@@ -1,0 +1,206 @@
+/*
+ * Do not remove the @namespace line -- it's required for correct functioning
+ */
+@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"); /* set default namespace to XUL */
+
+
+#mail-toolbox,
+.mail-toolbox,
+#chat-view-toolbox,
+#ab-bar2,
+#unifinder-searchBox {
+    -moz-appearance: none !important;
+	border-bottom:1px solid #939393;
+	border-top:1px solid #939393;
+	border-top:0;
+	border-bottom:0;
+	inset 0 1px rgba(255,255,255,0.15) !important;
+	background: -moz-linear-gradient(#D5D5D5, #D5D5D5, #B8B8B8) !important;
+
+}
+
+
+
+#composeToolbar2
+{
+    -moz-appearance: none !important;
+	border-bottom:1px solid #828282 !important;
+	/*border-top:1px solid #939393;*/
+	border-top:0;
+	padding-bottom: 5px !important;
+	inset 0 1px rgba(255,255,255,0.15) !important;
+	background: -moz-linear-gradient(#CECECE, #D5D5D5, #B8B8B8) !important;
+
+}
+
+#composeContentBox 
+{
+	/* Old shadow*/
+	/*  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.4) inset;*/
+	box-shadow: none !important;
+
+}
+
+#composeContentBox:-moz-window-inactive 
+{
+	/* Old shadow*/
+	/*box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3) inset;*/  
+	box-shadow: none !important;
+}
+
+#event-toolbox,
+#event-toolbox .mail-toolbox
+{
+	background: -moz-linear-gradient(#CFCFCF, #CFCFCF, #D5D5D5, #B8B8B8) !important;
+	box-shadow: none !iportant;
+
+}
+
+.mail-toolbox, .contentTabToolbox
+{
+	box-shadow: none !important;
+}
+
+#event-grid-basic-separator,
+separator.groove:not([orient="vertical"]) 
+{
+  border-top: 0 !important;
+  border-bottom: 1px solid #B7B7B7 !important;
+}
+
+#msgIdentity {
+
+  border: 1px solid transparent !important;
+  border-bottom-color: #828282 !important;
+}
+
+#msgIdentity:hover,
+#msgIdentity[focused="true"] {
+  background-color: -moz-field;
+  -moz-border-top-colors: ThreeDShadow ThreeDHighlight;
+  -moz-border-right-colors: ThreeDShadow ThreeDHighlight;
+  -moz-border-bottom-colors: ThreeDShadow ThreeDHighlight;
+  -moz-border-left-colors: ThreeDShadow ThreeDHighlight;
+  border:1px solid ThreeDShadow ThreeDHighlight !important;
+}
+
+#msgSubject
+{
+  border-bottom: 1px solid #828282 !important;
+}
+
+#msgSubject[focused="true"],
+#msgSubject:hover
+{
+  border: 1px solid #828282 !important;
+}
+
+#addressCol2#1,#addressCol2#2, #addressCol2#3, #addressCol2#4, #addressCol2#5,
+#addressCol2#6,#addressCol2#7, #addressCol2#8, #addressCol2#9, #addressCol2#10    
+{ 
+  border-bottom: 1px solid #828282 !important;
+}
+
+.textbox-addressingWidget,
+.dummy-row-cell:not(:first-child)
+{ 
+
+  border-bottom: 1px solid #828282 !important;
+}
+
+.textbox-addressingWidget[focused="true"],
+.textbox-addressingWidget:hover
+{
+  border: 1px solid #828282 !important;
+}
+	
+.textbox 
+{ 
+  border-bottom: 1px solid #828282 !important;
+}
+
+.textbox[focused="true"],
+.textbox:hover
+{
+  border: 1px solid #828282 !important;
+}
+
+
+spliter#compose-toolbar-sizer
+{
+	background-color: transparent !important;
+	color: transparent !important;
+}
+
+.statusbar-resizerpanel ,
+resizer 
+{
+  background: none !important;
+  display: none;
+ 
+}
+
+
+.dialog-button,
+.button
+{
+	padding:5px !important;
+}
+
+
+
+
+
+/* fix broken GTK3 tabs in some dialog windows */
+#MailPreferences tab,
+#certmanager tab,
+#certDetails tab {
+    -moz-appearance: none !important;
+    box-sizing: content-box !important;
+
+    background-color: #c1c1c1 !important;
+
+    border-style: solid !important;
+    border-width: 1px !important;
+    border-bottom-width: 0 !important;
+    border-color: #9c9c9c !important;
+
+    margin: 2px 0 0 0 !important;
+    padding: 5px 12px !important;
+}
+
+#MailPreferences tab[selected="true"],
+#MailPreferences tab[visuallyselected="true"],
+#certmanager tab[selected="true"],
+#certmanager tab[visuallyselected="true"],
+#certDetails tab[selected="true"],
+#certDetails tab[visuallyselected="true"] {
+    -moz-appearance: none !important;
+    box-sizing: content-box !important;
+
+    background-color: #cecece !important;
+
+    border-top: 3px #398ee7 solid !important;
+    border-bottom: 1px #cecece solid !important;
+    border-left-color: #7f7f7f !important;
+    border-right-color: #7f7f7f !important;
+
+    margin-bottom: -1px !important;
+    margin-top: 0 !important;
+    padding-bottom: 6px !important;
+}
+
+#MailPreferences tab + tab,
+#certmanager tab + tab,
+#certDetails tab + tab {
+    -moz-appearance: none !important;
+    box-sizing: content-box !important;
+    margin-left: -1px !important;
+}
+
+#MailPreferences tabs + tabpanels,
+#certmanager tabs + tabpanels,
+#certDetails tabs + tabpanels {
+    -moz-appearance: none !important;
+    border: 1px #7f7f7f solid !important;
+}

@@ -1,6 +1,6 @@
 # Thunderbird Chrome Greybird Theme
 
-To add some Greybird styles to your Thunderbird, please, unpack the thunderbird_chrome.7z file and copy the content inside the folder:
+To add some Greybird styles and fixes to your Thunderbird, please, copy the thunderbird_chrome content into your profile:
 
 	/home/<user>/.thunderbird/<profile>.default/chrome
 
