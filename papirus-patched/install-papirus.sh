@@ -28,7 +28,7 @@ echo
 echo "Installing and configuring..."
 echo "--------------------------------------------------"
 
-su root -c "rm -rf /usr/share/icons/ePapirus ; rm -rf /usr/share/icons/Papirus ; rm -rf /usr/share/icons/Papirus-Adapta ; rm -rf /usr/share/icons/Papirus-Adapta-Nokto ; rm -rf /usr/share/icons/Papirus-Dark ; rm -rf /usr/share/icons/Papirus-Light ; cp -R ePapirus Papirus Papirus-Adapta Papirus-Adapta-Nokto Papirus-Dark Papirus-Light /usr/share/icons/ ; update-icon-caches /usr/share/icons/* ; chmod -R 775 /usr/share/icons/ePapirus ; chmod -R 775 /usr/share/icons/Papirus ; chmod -R 775 /usr/share/icons/Papirus-Adapta ; chmod -R 775 /usr/share/icons/Papirus-Adapta-Nokto ; chmod -R 775 /usr/share/icons/Papirus-Dark ; chmod -R 775 /usr/share/icons/Papirus-Light"
+su root -c "rm -rf /usr/share/icons/ePapirus ; rm -rf /usr/share/icons/Papirus ; rm -rf /usr/share/icons/Papirus-Dark ; rm -rf /usr/share/icons/Papirus-Light ; cp -R ePapirus Papirus Papirus-Dark Papirus-Light /usr/share/icons/ ; /usr/sbin/update-icon-caches /usr/share/icons/* ; chmod -R 775 /usr/share/icons/ePapirus ; chmod -R 775 /usr/share/icons/Papirus ; chmod -R 775 /usr/share/icons/Papirus-Dark ; chmod -R 775 /usr/share/icons/Papirus-Light"
 
 
 
