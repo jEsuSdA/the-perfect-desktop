@@ -64,6 +64,16 @@ lo cambiamos por
 Para evitar el borde redondeado en las notificaciones.
 
 
+en xfce-notify-4.0/gtk.css
+
+añadir:
+    border-radius: 0;
+
+en 
+
+#XfceNotifyWindow {
+
+
 
 
 /***************************************************
