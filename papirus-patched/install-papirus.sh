@@ -45,3 +45,6 @@ rm -rf $OUTPUT
 
 
 echo "Done!"
+echo "Use"
+echo "papirus-folders -C orange --theme ePapirus"
+echo "to change papirus folder colors if you like"
