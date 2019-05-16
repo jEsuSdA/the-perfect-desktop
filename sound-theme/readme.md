@@ -27,6 +27,49 @@ You should watch something like that:
 
 If "canberra-gtk-module" does not appears, you should force load this module doing that:
 
+
+
+Create file
+
+	/etc/X11/Xsession.d/52libcanberra-gtk3-module_add-to-gtk-modules
+
+
+Edit and copy this inside 52libcanberra-gtk3-module_add-to-gtk-modules
+
+
+	# -*- sh -*-
+	# Xsession.d script to set the GTK_MODULES env variable to load atk
+	#
+	# This file is sourced by Xsession(5), not executed.
+
+	if [ -z "$GTK_MODULES" ] ; then
+		GTK_MODULES="canberra-gtk-module"
+	else
+		GTK_MODULES="$GTK_MODULES:canberra-gtk-module"
+	fi
+
+	export GTK_MODULES
+
+
+
+
+Doing any of these steps and re-login, you must see this 
+
+	gail:atk-bridge:canberra-gtk-module
+
+after typing
+
+	echo $GTK_MODULES
+
+
+
+---
+
+
+This may work, but if don't, you can try:
+
+
+
 create the file 
 
 	/etc/profile.d/gtk-modules-camberra.sh
@@ -45,7 +88,15 @@ Make it executable (as root)
 
 Or you can do this creating a .gtkrc-2.0 file in your $HOME with the following contents:
 
+	~.gtk-2.0
+
 	gtk-modules = "canberra-gtk-module"
+
+
+	gtk-enable-event-sounds=1
+	gtk-enable-input-feedback-sounds=1
+	gtk-sound-theme-name=pasodoble
+
 
 
 Or putting 
@@ -57,13 +108,7 @@ in your
 	~/.xprofile or ~/.xinitrc
 
 
-Doing any of these steps and re-login, you must see this 
 
-	gail:atk-bridge:canberra-gtk-module
-
-after typing
-
-	echo $GTK_MODULES
 
 
 ## 4 Enable event sounds
@@ -145,8 +190,8 @@ Another thing you may try if you don't want to go to the gnome-settings-daemon r
 	~.config/gtk-3.0/settings.ini 
 
 	[Settings]
-	gtk-enable-event-sounds=true
-	gtk-enable-input-feedback-sounds=true
+	gtk-enable-event-sounds=1
+	gtk-enable-input-feedback-sounds=1
 	gtk-sound-theme-name=pasodoble
 
 
