@@ -34,7 +34,7 @@ create the file
 with thist content:
 
 	#!/bin/sh
-	export GTK_MODULES=$GTK_MODULES:canberra-gtk-module:topmenu-gtk-module
+	export GTK_MODULES=$GTK_MODULES:canberra-gtk-module
 
 
 Make it executable (as root)
@@ -45,7 +45,7 @@ Make it executable (as root)
 
 Or you can do this creating a .gtkrc-2.0 file in your $HOME with the following contents:
 
-	gtk-modules = "canberra-gtk-module:topmenu-gtk-module"
+	gtk-modules = "canberra-gtk-module"
 
 
 Or putting 
