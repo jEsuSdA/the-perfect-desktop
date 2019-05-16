@@ -53,7 +53,7 @@ Edit and copy this inside 52libcanberra-gtk3-module_add-to-gtk-modules
 
 
 
-Doing any of these steps and re-login, you must see this 
+After doing that and re-login, you must see this 
 
 	gail:atk-bridge:canberra-gtk-module
 
@@ -65,12 +65,9 @@ after typing
 
 ---
 
-
 This may work, but if don't, you can try:
 
-
-
-create the file 
+Create the file 
 
 	/etc/profile.d/gtk-modules-camberra.sh
 
