@@ -3,30 +3,33 @@
 
 ## 1 Install sound theme:
 
-Run install.sh or copy pasodoble folder into /usr/share/sounds/
+Run install.sh or copy pasodoble folder into 
+
+	/usr/share/sounds/
 
 
 ## 2 Install packages:
 
-apt-get install dconf-tools sound-theme-freedesktop xfconf pavucontrol
-apt-get install sox gnome-session-canberra at-spi2-core xdg-utils
+	apt-get install dconf-tools sound-theme-freedesktop xfconf pavucontrol
+	apt-get install sox gnome-session-canberra at-spi2-core xdg-utils
 
 ## 3 Test loaded camberra-gtk-modules 
 
 In terminal:
 
-echo $GTK_MODULES
+	echo $GTK_MODULES
 
 You should watch something like that:
 
-$ → echo $GTK_MODULES
-gail:atk-bridge:canberra-gtk-module
+	$ → echo $GTK_MODULES
+	gail:atk-bridge:canberra-gtk-module
 
 
 If "canberra-gtk-module" does not appears, you should force load this module doing that:
 
 create the file 
-/etc/profile.d/gtk-modules-camberra.sh
+
+	/etc/profile.d/gtk-modules-camberra.sh
 
 with thist content:
 
@@ -36,28 +39,31 @@ with thist content:
 
 Make it executable (as root)
 
-chmod +x /etc/profile.d/gtk-modules-camberra.sh
+	chmod +x /etc/profile.d/gtk-modules-camberra.sh
 
 
 
 Or you can do this creating a .gtkrc-2.0 file in your $HOME with the following contents:
-gtk-modules = "canberra-gtk-module:topmenu-gtk-module"
+
+	gtk-modules = "canberra-gtk-module:topmenu-gtk-module"
 
 
 Or putting 
 
-export GTK_MODULES=$GTK_MODULES:canberra-gtk-module
+	export GTK_MODULES=$GTK_MODULES:canberra-gtk-module
 
-in your ~/.xprofile or ~/.xinitrc
+in your 
+
+	~/.xprofile or ~/.xinitrc
 
 
 Doing any of these steps and re-login, you must see this 
 
-gail:atk-bridge:canberra-gtk-module
+	gail:atk-bridge:canberra-gtk-module
 
 after typing
 
-echo $GTK_MODULES
+	echo $GTK_MODULES
 
 
 ## 4 Enable event sounds
@@ -124,7 +130,10 @@ Or using test-theme-global.sh script
 
 ### Activate sound on terminal 
 
-Go to .config/Terminal/
+Go to 
+	
+	.config/Terminal/
+
 Open terminalrc in a text editor.
 Find the MiscBell setting, and change it to TRUE.
 
