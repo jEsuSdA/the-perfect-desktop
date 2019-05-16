@@ -180,6 +180,33 @@ Open terminalrc in a text editor.
 Find the MiscBell setting, and change it to TRUE.
 
 
+In XFCE do the same with 
+
+	.config/xfce4/terminal/terminalrc
+
+
+	MiscBell=TRUE
+
+
+
+Edit 
+	/etc/pulse/default.pa 
+
+and add the following to the bottom of the file:
+
+	# audible bell
+	load-sample-lazy x11-bell /usr/share/sounds/pasodoble/stereo/bell.ogg
+	load-module module-x11-bell sample=x11-bell
+
+Restart PulseAudio
+
+	pulseaudio -k
+
+And that's all! You can ear a nice sound as a bell in Terminal. :D
+
+
+
+
 ### gtk3
 
 Another thing you may try if you don't want to go to the gnome-settings-daemon route is create 
