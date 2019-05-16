@@ -58,6 +58,11 @@ Copy the root.bashrc to /root/.bashrc*
 
 
 
+## Sound theme
+
+All you need to activate sound theme into your XFCE Desktop. You know, play sounds when you do things! ;)
+
+
 # License
 
 All the scripts are publised under the [GNU General Public License V3](https://www.gnu.org/licenses/gpl.html).

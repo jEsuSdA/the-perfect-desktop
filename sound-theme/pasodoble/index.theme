@@ -1,0 +1,6 @@
+[Sound Theme]
+Name=pasodoble
+Directories=stereo
+
+[stereo]
+OutputProfile=stereo
