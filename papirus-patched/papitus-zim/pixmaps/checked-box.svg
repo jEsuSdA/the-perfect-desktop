@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="16"
+   height="16"
+   viewBox="0 0 16 16"
+   version="1.1"
+   id="svg7"
+   sodipodi:docname="checked-box.svg"
+   inkscape:version="0.92.2 (5c3e80d, 2017-08-06)"
+   inkscape:export-filename="/home/jesusda/work-in-progress/pasodoble/pasodoble-papirus/papirus-extra/zim/pixmaps/checked-box.png"
+   inkscape:export-xdpi="144"
+   inkscape:export-ydpi="144">
+  <metadata
+     id="metadata11">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="640"
+     inkscape:window-height="480"
+     id="namedview9"
+     showgrid="true"
+     inkscape:zoom="31.689248"
+     inkscape:cx="15.267044"
+     inkscape:cy="4.3660099"
+     inkscape:current-layer="svg7">
+    <inkscape:grid
+       type="xygrid"
+       id="grid838" />
+  </sodipodi:namedview>
+  <defs
+     id="defs3">
+    <style
+       id="current-color-scheme"
+       type="text/css">
+   .ColorScheme-Text { color:#6e6e6e; } .ColorScheme-Highlight { color:#5294e2; }
+  </style>
+    <style
+       type="text/css"
+       id="current-color-scheme-3">
+   .ColorScheme-Text { color:#5c616c; } .ColorScheme-Highlight { color:#5294e2; }
+  </style>
+  </defs>
+  <g
+     id="g1937"
+     transform="translate(-3.9795138,3.0262117)">
+    <path
+       inkscape:connector-curvature="0"
+       id="path820"
+       d="M 7,-2 C 5.892,-2 5,-1.108 5,0 v 4 6 c 0,1.108 0.892,2 2,2 h 6 4 c 1.108,2e-5 2,-0.892 2,-2 V 6 0 c 0,-1.108 -0.892,-2 -2,-2 h -6 z m 0,2 h 4 6 V 5.994141 10 H 13 7 V 4.005859 Z"
+       style="color:#6e6e6e;fill:currentColor" />
+    <path
+       inkscape:connector-curvature="0"
+       style="color:#5c616c;fill:#4e9a06"
+       class="ColorScheme-Text"
+       d="m 19.048828,-2.4707004 c -0.09621,-0.018077 -0.19612,-0.019122 -0.298828,0.00195 -0.21888,0.0473 -0.42059,0.17053 -0.5625,0.3437501 L 11.90625,5.0625 l -2.25,-2.25 c -0.37633,-0.3763803 -1.0611,-0.3763503 -1.4375,0 -0.37635,0.37636 -0.37638,1.0611 0,1.4375 l 3,3 L 12,8 l 0.6875,-0.8125 7,-8.0000003 c 0.496492,-0.540514 0.0348,-1.5316658 -0.638672,-1.6582032 z"
+       id="path828" />
+  </g>
+</svg>
