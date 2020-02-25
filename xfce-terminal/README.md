@@ -10,4 +10,9 @@ Download the terminal-kgt-background.png file and configure xfce-terminal like t
 ![Terminal configuration](../screenshots/xfce-terminal-configuration.png)
 
 
+# Recommendation
+
+Use terminal-kgt-background.png with compton (with our compton.conf)
+and terminal-kgt-background-2.png with picom (with our picon.conf)
+
 
