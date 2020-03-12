@@ -11,8 +11,9 @@ By [jEsuSdA](http://www.jesusda.com)
 [Compton](https://github.com/chjj/compton) and [Picom](https://github.com/yshui/picom) are compositors for X11 wich add some effects to our desktop. Picom is a modern and up-to-date Compton fork.
 
 
-Here you can find my [compton.conf](compton-picom/compton.conf) file
-Here you can find my [picom.conf](compton-picom/picom.conf) file
+- Here you can find my [compton.conf](compton-picom/compton.conf) file.
+- Here you can find my [picom.conf](compton-picom/picom.conf) file.
+
 
 *You must copy the .conf files into your ~/.config/ folder* 
 
