@@ -2,6 +2,7 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
+
 # If not running interactively, don't do anything:
 [ -z "$PS1" ] && return
 
@@ -12,12 +13,12 @@
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
 
+
 # enable color support of ls and also add handy aliases
 if [ "$TERM" != "dumb" ]; then
     eval "`dircolors -b`"
     alias ls='ls --color=auto'
 fi
-
 
 # set variable identifying the chroot you work in (used in the prompt below)
 if [ -z "$debian_chroot" -a -r /etc/debian_chroot ]; then
@@ -34,6 +35,8 @@ xterm-color)
     ;;
 esac
 
+# Comment in the above and uncomment this below for a color prompt
+#PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
@@ -67,7 +70,23 @@ export SCUMMVM_PORT=128:0
 
 
 # SCRIPTS PERSONALIZADOS:
+
+#export PATH=$PATH:/home/<user>/<dir-with-programs-to-add-to-path>
 alias ls='ls --color=auto'
+
+# Some more alias to avoid making mistakes:
+# alias rm='rm -i'
+# alias cp='cp -i'
+# alias mv='mv -i'
+
+# some more ls aliases
+#alias ll='ls -l'
+#alias la='ls -A'
+#alias l='ls -CF'
+
+# Alias para todotxt-cli
+alias t='todo.sh'
+
 
 
 # COLORES PARA MAN:
@@ -80,13 +99,23 @@ export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[01;32m'
 
 
-# LOOK GTK PARA APPS JAVA
 export  _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true  -Dsun.java2d.xrender=true -Dawt.useSystemAAFontSettings=gasp -Dswing.crossplatformlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel'
 
+#export JAVA_HOME="/usr/lib/jvm/java-7-oracle"
+#export JAVA_HOME="/usr/lib/jvm/java-9-oracle"
+#export PATH="$PATH:$JAVA_HOME/bin"
+#export SWT_GTK3=0
+
+
+# Parches para evitar las "fantasías" de GTK
 export GTK_OVERLAY_SCROLLING=0
+export GTK_CSD=0
+export LD_PRELOAD=/usr/lib/libgtk3-nocsd.so.0
 
 
 # Sexy Solarized Bash Prompt, inspired by "Extravagant Zsh Prompt"
+# Screenshot: http://img.gf3.ca/d54942f474256ec26a49893681c49b5a.png
+
 
 if [[ $COLORTERM = gnome-* && $TERM = xterm ]]  && infocmp
 gnome-256color >/dev/null 2>&1; then TERM=gnome-256color; fi
@@ -150,3 +179,5 @@ parse_git_branch () {
 }
 
 PS1="\[${BOLD}${GREEN}\]\u\[$BASE0\]@\[$ORANGE\]\h \[$BASE0\]in \[$BLUE\]\w\[$BASE0\]\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" on \")\[$CYAN\]\$(parse_git_branch)\[$BASE0\]\n\$ → \[$RESET\]"
+
+
