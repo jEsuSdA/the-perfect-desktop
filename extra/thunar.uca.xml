@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actions>
+<action>
+	<icon>utilities-terminal</icon>
+	<name>Abrir terminal aquí</name>
+	<unique-id>1478366489597959-1</unique-id>
+	<command>exo-open --working-directory %f --launch TerminalEmulator</command>
+	<description>Ejemplo de una acción personalizada</description>
+	<patterns>*</patterns>
+	<directories/>
+</action>
+<action>
+	<icon>org.gnome.baobab</icon>
+	<name>Uso de Disco</name>
+	<unique-id>1453463067836298-2</unique-id>
+	<command>mate-disk-usage-analyzer %f</command>
+	<description>Consumo de Disco</description>
+	<patterns>*</patterns>
+	<directories/>
+</action>
+<action>
+	<icon>gnome-searchtool</icon>
+	<name>Buscar archivos</name>
+	<unique-id>1485696981693670-1</unique-id>
+	<command>mate-search-tool --path=%f</command>
+	<description>Buscar archivos</description>
+	<patterns>*</patterns>
+	<directories/>
+</action>
+<action>
+	<icon>preferences-system-search</icon>
+	<name>Buscar archivos Catfish</name>
+	<unique-id>1565272014813052-1</unique-id>
+	<command>catfish --path=%f</command>
+	<description>Buscar archivos con CatFish</description>
+	<patterns>*</patterns>
+	<directories/>
+</action>
+<action>
+	<icon>xfce-terminal</icon>
+	<name>Ejecutar en terminal</name>
+	<unique-id>1370678663766603-4</unique-id>
+	<command>xfce4-terminal -x %f</command>
+	<description>Ejecutar en terminal</description>
+	<patterns>*.sh</patterns>
+	<other-files/>
+</action>
+<action>
+	<icon>system-file-manager</icon>
+	<name>Abrir con SpaceFM</name>
+	<unique-id>1370678663766615-5</unique-id>
+	<command>spacefm --no-desktop %f</command>
+	<description></description>
+	<patterns>*</patterns>
+	<directories/>
+</action>
+<action>
+	<icon>system-file-manager</icon>
+	<name>Abrir con PCManFM</name>
+	<unique-id>1478629566320907-1</unique-id>
+	<command>pcmanfm -n %f</command>
+	<description></description>
+	<patterns>*</patterns>
+	<directories/>
+</action>
+<action>
+	<icon>document-viewer</icon>
+	<name>Buscar duplicados</name>
+	<unique-id>1502464994301635-1</unique-id>
+	<command>fslint-gui %f</command>
+	<description>Buscar archivos duplicados en la carpeta</description>
+	<patterns>*</patterns>
+	<directories/>
+</action>
+<action>
+	<icon>application-x-rar</icon>
+	<name>Descomprimir RAR</name>
+	<unique-id>1370678663766627-6</unique-id>
+	<command>unrar x %f &amp;&amp; beep</command>
+	<description>Descomprimir RAR</description>
+	<patterns>*.rar</patterns>
+	<other-files/>
+</action>
+<action>
+	<icon>image-x-generic</icon>
+	<name>Convertir a JPG</name>
+	<unique-id>1502129059050674-1</unique-id>
+	<command>convert %f -quality 85 `basename %f .png`.jpg</command>
+	<description>Convertir imágen a formato JPG</description>
+	<patterns>*.png</patterns>
+	<image-files/>
+</action>
+<action>
+	<icon>image-x-generic</icon>
+	<name>Optimizar JPG</name>
+	<unique-id>1513451266534407-3</unique-id>
+	<command>cd %d &amp;&amp; sh /home/jesusda/base/bin/scripts/optijpg.sh %f</command>
+	<description>Optimizar tus imágenes JPG para que pesen menos</description>
+	<patterns>*.jpg;*.jpeg;*.JPG;*.JPEG</patterns>
+	<image-files/>
+</action>
+<action>
+	<icon>object-rotate-right</icon>
+	<name>Rotar JPG</name>
+	<unique-id>1488916464074131-1</unique-id>
+	<command>for file in %F; do tempfile=$(mktemp); (jpegtran -copy all -rotate 90 $file &gt; $tempfile); mv -f $tempfile $file; rm -f $tempfile; done</command>
+	<description>Rotar imágenes JPG</description>
+	<patterns>*.jpg;*.JPG;*.jpeg;*.JPEG</patterns>
+	<image-files/>
+</action>
+<action>
+	<icon>stock_folder-copy</icon>
+	<name>Copiar ruta</name>
+	<unique-id>1483635502567551-2</unique-id>
+	<command>echo -n  %f/ | xclip -selection clipboard</command>
+	<description>Copiar ruta al portapapeles</description>
+	<patterns>*</patterns>
+	<directories/>
+	<audio-files/>
+	<image-files/>
+	<other-files/>
+	<text-files/>
+	<video-files/>
+</action>
+<action>
+	<icon>pdfeditor</icon>
+	<name>Optimizar PDFs</name>
+	<unique-id>1518628863406487-2</unique-id>
+	<command>/home/jesusda/base/bin/scripts/thunar_optipdf.sh  &quot;%d&quot;</command>
+	<description>Reduce el peso de los PDFs</description>
+	<patterns>*.pdf</patterns>
+	<startup-notify/>
+	<other-files/>
+</action>
+<action>
+	<icon>application-pdf</icon>
+	<name>Rasterizar PDF</name>
+	<unique-id>1591115493733996-1</unique-id>
+	<command>/home/jesusda/base/bin/scripts/thunar_pdf2raster.sh  &quot;%f&quot;</command>
+	<description>Convierte el PDF a una versión no textual</description>
+	<patterns>*.pdf</patterns>
+	<startup-notify/>
+	<other-files/>
+</action>
+<action>
+	<icon>application-pdf</icon>
+	<name>Markdown a PDF</name>
+	<unique-id>1509394315527393-6</unique-id>
+	<command>cd %d &amp;&amp; sh /home/jesusda/base/bin/scripts/md2pdf.sh %f</command>
+	<description></description>
+	<patterns>*.md</patterns>
+	<startup-notify/>
+	<text-files/>
+</action>
+<action>
+	<icon>application-x-mswinurl</icon>
+	<name>Markdown a HTML</name>
+	<unique-id>1570704364777279-1</unique-id>
+	<command>cd %d &amp;&amp; sh /home/jesusda/base/bin/scripts/md2html.sh %f</command>
+	<description></description>
+	<patterns>*.md</patterns>
+	<startup-notify/>
+	<text-files/>
+</action>
+<action>
+	<icon>libreoffice-writer</icon>
+	<name>Markdown a ODT</name>
+	<unique-id>1589827287256582-1</unique-id>
+	<command>cd %d &amp;&amp; sh /home/jesusda/base/bin/scripts/md2odt.sh %f</command>
+	<description></description>
+	<patterns>*.md</patterns>
+	<startup-notify/>
+	<text-files/>
+</action>
+<action>
+	<icon>dialog-information</icon>
+	<name>MD5 Doc</name>
+	<unique-id>1510861981725021-2</unique-id>
+	<command>/home/jesusda/base/bin/scripts/md5version.sh %f</command>
+	<description>Genera una clave para un documento dado</description>
+	<patterns>*.odt</patterns>
+	<other-files/>
+</action>
+<action>
+	<icon>application-pdf</icon>
+	<name>Convertir a PDF</name>
+	<unique-id>1574340569579603-1</unique-id>
+	<command>unoconv -f pdf %f</command>
+	<description>Convierte el documento a PDF</description>
+	<patterns>*.docx;*.DOCX;*.doc;*.DOC</patterns>
+	<other-files/>
+</action>
+<action>
+	<icon>format-text-lowercase</icon>
+	<name>Minúsculas</name>
+	<unique-id>1588752591411253-1</unique-id>
+	<command>/home/jesusda/base/bin/scripts/minusculas.sh %d</command>
+	<description>Renombrar archivos y carpetas a minúsculas</description>
+	<patterns>*</patterns>
+	<directories/>
+</action>
+<action>
+	<icon>application-pdf</icon>
+	<name>Optimizar PDF</name>
+	<unique-id>1593792073483932-1</unique-id>
+	<command>/home/jesusda/base/bin/scripts/pdf-optimize-gui.sh %f</command>
+	<description>Optimiza el PDF para que pese menos</description>
+	<patterns>*.pdf</patterns>
+	<startup-notify/>
+	<other-files/>
+</action>
+</actions>
