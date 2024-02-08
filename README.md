@@ -22,7 +22,7 @@ Read [this atricle](http://duncanlock.net/blog/2013/06/07/how-to-switch-to-compt
 
 If you have problems with drop-down shadows in latest Google Chrome versions, please, change this flags ( chrome://flags/ ) to disble the "UI refresh theme" and you get a better integration and look and feel.
 
-![Google Chrome](copton-picom/google-chrome_shadows-workaround.png  "Google Chrome")
+![Google Chrome](compton-picom/google-chrome_shadows-workaround.png "Google Chrome")
 
 
 ## Fonts
