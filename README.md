@@ -20,6 +20,11 @@ By [jEsuSdA](http://www.jesusda.com)
 Read [this atricle](http://duncanlock.net/blog/2013/06/07/how-to-switch-to-compton-for-beautiful-tear-free-compositing-in-xfce/) to get some info about Compton.
 
 
+If you have problems with drop-down shadows in latest Google Chrome versions, please, change this flags ( chrome://flags/ ) to disble the "UI refresh theme" and you get a better integration and look and feel.
+
+![Google Chrome](copton-picom/google-chrome_shadows-workaround.png  "Google Chrome")
+
+
 ## Fonts
 Fonts configuration files and howtos to allow better font rendering.
 
