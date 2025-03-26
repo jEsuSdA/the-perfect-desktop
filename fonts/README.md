@@ -2,17 +2,36 @@
 
 Nice and extremely well-made fonts for your desktop.
 
-I recommend the following fonts:
+I recommend the following fonts (in order of preference):
 
 - **Desktop/Apps/Regular Fonts**:
-	- Adwaita Regular
-	- Droid Sans
+	1. Adwaita Regular
+	2. Droid Sans
+	3. Fira Sans
 	
 - **Terminal/Code/Monospace Fonts**:
-	- Adwaita Mono
-	- JetBrains Mono
+	1. Adwaita Mono
+	2. JetBrains Mono
+	3. Fira Mono
 
 By selecting the appropriate font, you can achieve a beautiful appearance and improved legibility.
+
+
+## Installation
+
+Unzip the 7zip files, and you will obtain folders containing the font files.
+
+**For your user:**
+
+Copy to `/home/<user>/.fonts`
+
+**For all users:**
+
+Copy to `/usr/share/fonts/`
+
+
+That's all, folks!
+
 
 
 ## fonts.conf
