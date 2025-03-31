@@ -12,9 +12,13 @@ I recommend the following fonts (in order of preference):
 - **Terminal/Code/Monospace Fonts**:
 	1. Adwaita Mono
 	2. JetBrains Mono
+	3. Pragmasevka and IosVmata (*)
 	3. Fira Mono
 
 By selecting the appropriate font, you can achieve a beautiful appearance and improved legibility.
+
+
+* - IosVmata is a more spaced Pragmasevka version (and has a nerd version too. See more info at [nerd-fonts](https://github.com/ryanoasis/nerd-fonts) ).
 
 
 ## Installation
