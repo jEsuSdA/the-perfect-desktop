@@ -1,6 +1,6 @@
 # Kitty Terminal Background and config
 
-A background to configure the  **xfce4-terminal** (or other ones) looking awesome.
+A background and config file to make the  **kitty-terminal** looking awesome.
 
 ![XFCE Terminal](../screenshots/kitty-terminal.png)
 
