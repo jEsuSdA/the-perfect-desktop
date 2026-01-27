@@ -1,95 +1,47 @@
-# ~/.bashrc: executed by bash(1) for non-login shells.
-# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
-# for examples
+# ~/.bashrc: ejecutado por bash(1) para shells no-login.
+
+# .bashrc personalizado de jEsuSdA 8)
+#
+# Ver. 20260127 · versión mejorada
+# Ver. 20200101 · primera versión
+# 
 
 
-# If not running interactively, don't do anything:
+
+# 1. SALIDA TEMPRANA
+# Si no se ejecuta interactivamente, no hacer nada.
 [ -z "$PS1" ] && return
 
-# don't put duplicate lines in the history. See bash(1) for more options
-#export HISTCONTROL=ignoredups
-
-# check the window size after each command and, if necessary,
-# update the values of LINES and COLUMNS.
+# 2. OPCIONES DEL SHELL (SHOPT)
+# Comprobar tamaño de ventana tras cada comando
 shopt -s checkwinsize
 
+# No poner líneas duplicadas en el historial (opcional)
+export HISTCONTROL=ignoredups
 
-# enable color support of ls and also add handy aliases
-if [ "$TERM" != "dumb" ]; then
-    eval "`dircolors -b`"
-    alias ls='ls --color=auto'
+# 3. VARIABLES DE ENTORNO Y EXPORTS
+
+# 3.1. Configuración de Editor
+export EDITOR="/usr/bin/scite"
+
+# 3.2. Configuración de Audio y Juegos
+export ALSA_OUTPUT_PORTS="128:0"
+export SCUMMVM_PORT="128:0"
+
+# 3.3. Configuración Java
+export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dsun.java2d.xrender=true -Dawt.useSystemAAFontSettings=gasp -Dswing.crossplatformlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel'
+# export JAVA_HOME="/usr/lib/jvm/java-9-oracle" # Descomentar si es necesario
+
+# 3.4. Correcciones visuales GTK/QT
+export GTK_OVERLAY_SCROLLING=0
+export GTK_CSD=0
+export QT_QPA_PLATFORMTHEME=gtk2
+# Solo cargamos la librería si existe para evitar errores en logs
+if [ -f "/usr/lib/libgtk3-nocsd.so.0" ]; then
+    export LD_PRELOAD=/usr/lib/libgtk3-nocsd.so.0
 fi
 
-# set variable identifying the chroot you work in (used in the prompt below)
-if [ -z "$debian_chroot" -a -r /etc/debian_chroot ]; then
-    debian_chroot=$(cat /etc/debian_chroot)
-fi
-
-# set a fancy prompt (non-color, unless we know we "want" color)
-case "$TERM" in
-xterm-color)
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
-    ;;
-*)
-    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
-    ;;
-esac
-
-# Comment in the above and uncomment this below for a color prompt
-#PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
-
-# If this is an xterm set the title to user@host:dir
-case "$TERM" in
-xterm*|rxvt*)
-    PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD}\007"'
-    ;;
-*)
-    ;;
-esac
-
-# enable programmable completion features (you don't need to enable
-# this, if it's already enabled in /etc/bash.bashrc and /etc/profiles
-# sources /etc/bash.bashrc).
-if [ -f /etc/bash_completion ]; then
-    . /etc/bash_completion
-fi
-
-
-# This line was appended by KDE
-# Make sure our customised gtkrc file is loaded.
-# (This is no longer needed from version 0.8 of the theme engine)
-# export GTK2_RC_FILES=$HOME/.gtkrc-2.0
-export ALSA_OUTPUT_PORTS="128:0"
-export SCUMMVM_PORT=128:0
-export ALSA_OUTPUT_PORTS="128:0"
-export SCUMMVM_PORT=128:0
-export ALSA_OUTPUT_PORTS="128:0"
-export SCUMMVM_PORT=128:0
-export ALSA_OUTPUT_PORTS="128:0"
-export SCUMMVM_PORT=128:0
-
-
-# SCRIPTS PERSONALIZADOS:
-
-#export PATH=$PATH:/home/<user>/<dir-with-programs-to-add-to-path>
-alias ls='ls --color=auto'
-
-# Some more alias to avoid making mistakes:
-# alias rm='rm -i'
-# alias cp='cp -i'
-# alias mv='mv -i'
-
-# some more ls aliases
-#alias ll='ls -l'
-#alias la='ls -A'
-#alias l='ls -CF'
-
-# Alias para todotxt-cli
-alias t='todo.sh'
-
-
-
-# COLORES PARA MAN:
+# 3.5. Colores para páginas MAN (less)
 export LESS_TERMCAP_mb=$'\E[01;31m'
 export LESS_TERMCAP_md=$'\E[01;31m'
 export LESS_TERMCAP_me=$'\E[0m'
@@ -98,27 +50,53 @@ export LESS_TERMCAP_so=$'\E[01;44;33m'
 export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[01;32m'
 
+# 3.6. PATH (Ruta de ejecutables)
+# Se unifican las rutas: Opencode (al inicio) y Scripts personales (al final)
+export PATH="/home/jesusda/.opencode/bin:$PATH:/home/jesusda/base/bin/scripts/"
 
-export  _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true  -Dsun.java2d.xrender=true -Dawt.useSystemAAFontSettings=gasp -Dswing.crossplatformlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel'
+# 4. ALIAS
 
-#export JAVA_HOME="/usr/lib/jvm/java-7-oracle"
-#export JAVA_HOME="/usr/lib/jvm/java-9-oracle"
-#export PATH="$PATH:$JAVA_HOME/bin"
-#export SWT_GTK3=0
+# Habilitar soporte de colores para ls
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b 2>/dev/null)"
+    alias ls='ls --color=auto'
+    alias grep='grep --color=auto'
+fi
 
+# Alias personalizados
+alias t='todo.sh'
 
-# Parches para evitar las "fantasías" de GTK
-export GTK_OVERLAY_SCROLLING=0
-export GTK_CSD=0
-export LD_PRELOAD=/usr/lib/libgtk3-nocsd.so.0
+# Alias de seguridad (comentados por defecto, como en el original)
+# alias rm='rm -i'
+# alias cp='cp -i'
+# alias mv='mv -i'
 
+# Alias de listado (comentados por defecto)
+# alias ll='ls -l'
+# alias la='ls -A'
+# alias l='ls -CF'
 
-# Sexy Solarized Bash Prompt, inspired by "Extravagant Zsh Prompt"
-# Screenshot: http://img.gf3.ca/d54942f474256ec26a49893681c49b5a.png
+# 5. COMPLETADO PROGRAMABLE
+if ! shopt -oq posix; then
+  if [ -f /usr/share/bash-completion/bash_completion ]; then
+    . /usr/share/bash-completion/bash_completion
+  elif [ -f /etc/bash_completion ]; then
+    . /etc/bash_completion
+  fi
+fi
 
+# 6. IDENTIFICACIÓN CHROOT
+if [ -z "$debian_chroot" ] && [ -r /etc/debian_chroot ]; then
+    debian_chroot=$(cat /etc/debian_chroot)
+fi
 
-if [[ $COLORTERM = gnome-* && $TERM = xterm ]]  && infocmp
-gnome-256color >/dev/null 2>&1; then TERM=gnome-256color; fi
+# 7. PROMPT (SEXY SOLARIZED) Y TÍTULO DE VENTANA
+
+# Configuración de colores
+if [[ $COLORTERM = gnome-* && $TERM = xterm ]] && infocmp gnome-256color >/dev/null 2>&1; then
+    TERM=gnome-256color
+fi
+
 if tput setaf 1 &> /dev/null; then
     tput sgr0
     if [[ $(tput colors) -ge 256 ]] 2>/dev/null; then
@@ -159,8 +137,7 @@ if tput setaf 1 &> /dev/null; then
     BOLD=$(tput bold)
     RESET=$(tput sgr0)
 else
-    # Linux console colors. I don't have the energy
-    # to figure out the Solarized values
+    # Fallback colores consola Linux
     MAGENTA="\033[1;31m"
     ORANGE="\033[1;33m"
     GREEN="\033[1;32m"
@@ -168,16 +145,32 @@ else
     WHITE="\033[1;37m"
     BOLD=""
     RESET="\033[m"
+    # Definir variables vacías para evitar errores si tput falla
+    BASE0=""
+    BASE00=""
+    BLUE=""
+    CYAN=""
 fi
 
+# Funciones Git para el prompt
 parse_git_dirty () {
-  [[ $(git status 2> /dev/null | tail -n1) != "nothing to commit
-(working directory clean)" ]] && echo "*"
+  # Nota: Esto depende del idioma del sistema.
+  [[ $(git status 2> /dev/null | tail -n1) != "nothing to commit (working directory clean)" ]] && echo "*"
 }
 parse_git_branch () {
   git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/*\(.*\)/\1$(parse_git_dirty)/"
 }
 
-PS1="\[${BOLD}${GREEN}\]\u\[$BASE0\]@\[$ORANGE\]\h \[$BASE0\]in \[$BLUE\]\w\[$BASE0\]\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" on \")\[$CYAN\]\$(parse_git_branch)\[$BASE0\]\n\$ → \[$RESET\]"
+# Construcción del PS1
+# Se incluye debian_chroot por si estás en un entorno chroot, aunque el diseño original Solarized no lo traía, es mejor mantener la variable.
+PS1='${debian_chroot:+($debian_chroot)}'
+PS1+="${BOLD}${GREEN}\u${BASE0}@${ORANGE}\h ${BASE0}in ${BLUE}\w${BASE0}\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" on \")${CYAN}\$(parse_git_branch)${BASE0}\n\$ → ${RESET}"
 
-
+# Título de ventana para xterm/rxvt
+case "$TERM" in
+xterm*|rxvt*)
+    PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD}\007"'
+    ;;
+*)
+    ;;
+esac
