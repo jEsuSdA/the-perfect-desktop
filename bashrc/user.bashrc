@@ -2,6 +2,7 @@
 
 # .bashrc personalizado de jEsuSdA 8)
 #
+# Ver. 20260129 · solucionado problema con prompt errático
 # Ver. 20260127 · versión mejorada
 # Ver. 20200101 · primera versión
 # 
@@ -35,7 +36,8 @@ export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dsun
 # 3.4. Correcciones visuales GTK/QT
 export GTK_OVERLAY_SCROLLING=0
 export GTK_CSD=0
-export QT_QPA_PLATFORMTHEME=gtk2
+# export QT_STYLE=GTK+
+# export QT_QPA_PLATFORMTHEME=qt5ct
 # Solo cargamos la librería si existe para evitar errores en logs
 if [ -f "/usr/lib/libgtk3-nocsd.so.0" ]; then
     export LD_PRELOAD=/usr/lib/libgtk3-nocsd.so.0
@@ -164,7 +166,11 @@ parse_git_branch () {
 # Construcción del PS1
 # Se incluye debian_chroot por si estás en un entorno chroot, aunque el diseño original Solarized no lo traía, es mejor mantener la variable.
 PS1='${debian_chroot:+($debian_chroot)}'
-PS1+="${BOLD}${GREEN}\u${BASE0}@${ORANGE}\h ${BASE0}in ${BLUE}\w${BASE0}\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" on \")${CYAN}\$(parse_git_branch)${BASE0}\n\$ → ${RESET}"
+PS1+='\['"${BOLD}${GREEN}"'\]\u\['"${BASE0}"'\]@\['"${ORANGE}"'\]\h \['"${BASE0}"'\]in \['"${BLUE}"'\]\w'
+PS1+='$([[ -n $(git branch 2> /dev/null) ]] && echo " on ")'
+PS1+='\['"${CYAN}"'\]$(parse_git_branch)\['"${BASE0}"'\]'
+PS1+='\n\$ → \['"${RESET}"'\]'
+
 
 # Título de ventana para xterm/rxvt
 case "$TERM" in
