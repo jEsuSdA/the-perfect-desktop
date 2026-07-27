@@ -63,12 +63,9 @@ For me, it's the perfect balance between power and efficiency. It doesn't requir
 
 
 | Compositor | Backend(s) | Shadows | Blur | Animations | VSync | Config | Size | Dependencies | CPU | RAM | Recommendation |
-
----|---|---|---|---|---|---|---|---|---|---|---|
-
-**picom** | GLX, XRender | ✅ | ✅ dual_kawase | ✅ script-based (7 presets) | ✅ | picom.conf | Large | Medium | ⚠️ Medium | ⚠️ Medium | General Purpose |
-
-**fastcompmgr** | XRender | ✅ | ❌ | ❌ | ❌ | CLI Only | ~70K | Minimal | ✅ Very Low | ✅ Very Low | Extreme Performance |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+|**picom** | GLX, XRender | ✅ | ✅ dual_kawase | ✅ script-based (7 presets) | ✅ | picom.conf | Large | Medium | ⚠️ Medium | ⚠️ Medium | General Purpose |
+|**fastcompmgr** | XRender | ✅ | ❌ | ❌ | ❌ | CLI Only | ~70K | Minimal | ✅ Very Low | ✅ Very Low | Extreme Performance |
 
 ---
 
