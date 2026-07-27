@@ -6,24 +6,6 @@ By [jEsuSdA](http://www.jesusda.com)
 ![Screenshot](screenshots/the-perfect-desktop-2.png  "Screenshot")
 
 
-## Compton
-
-[Compton](https://github.com/chjj/compton) and [Picom](https://github.com/yshui/picom) are compositors for X11 wich add some effects to our desktop. Picom is a modern and up-to-date Compton fork.
-
-
-- Here you can find my [compton.conf](compton-picom/compton.conf) file.
-- Here you can find my [picom.conf](compton-picom/picom.conf) file.
-
-
-*You must copy the .conf files into your ~/.config/ folder* 
-
-Read [this atricle](http://duncanlock.net/blog/2013/06/07/how-to-switch-to-compton-for-beautiful-tear-free-compositing-in-xfce/) to get some info about Compton.
-
-
-If you have problems with drop-down shadows in latest Google Chrome versions, please, change this flags ( chrome://flags/ ) to disble the "UI refresh theme" and you get a better integration and look and feel.
-
-![Google Chrome](compton-picom/google-chrome_shadows-workaround.png "Google Chrome")
-
 
 ## Fonts
 Fonts configuration files and howtos to allow better font rendering.
@@ -72,6 +54,10 @@ Copy the root.bashrc to /root/.bashrc*
 ## Compositors
 
 You can add shadows, transparency, rounded corners and even animation to your windows using some of the X Compositors you can find here. Configuration files and launcher included.
+
+If you have problems with drop-down shadows in latest Google Chrome versions, please, change this flags ( chrome://flags/ ) to disble the "UI refresh theme" and you get a better integration and look and feel.
+
+![Google Chrome](compton-picom/google-chrome_shadows-workaround.png "Google Chrome")
 
 
 ## Sound theme
