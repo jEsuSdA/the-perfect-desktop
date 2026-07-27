@@ -46,7 +46,7 @@ It's actively maintained and works very well; however, it's no longer as lightwe
 
 It's also a fork of Compton, but focused on being as efficient and fast as possible. It sacrifices features like fading and animations for maximum efficiency.
 
-The version you can find compiled here is, in turn, a patched version I created to achieve even greater efficiency and speed [https://github.com/tycho-kirchner/fastcompmgr/issues/35](more information here).
+The version you can find compiled here is, in turn, a patched version I created to achieve even greater efficiency and speed [more information here](https://github.com/tycho-kirchner/fastcompmgr/issues/35).
 
 For me, it's the perfect balance between power and efficiency. It doesn't require any configuration files. Just run it with parameters and you're good to go.
 
