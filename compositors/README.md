@@ -12,7 +12,7 @@ You can install them directly from your distro's repositories, compile them from
 
 
 
-![screenshot-compositors.png](Shadows and Transparencty)
+![Shadows and Transparencty](screenshot-compositors.png)
 
 ---
 
@@ -60,9 +60,10 @@ For me, it's the perfect balance between power and efficiency. It doesn't requir
 
 ---
 
+
 | Compositor | Backend(s) | Shadows | Blur | Animations | VSync | Config | Size | Dependencies | CPU | RAM | Recommendation |
 
----|---|---|---|---|---|---|---|---|---|---|---|---|
+---|---|---|---|---|---|---|---|---|---|---|---|
 
 **picom** | GLX, XRender | ✅ | ✅ dual_kawase | ✅ script-based (7 presets) | ✅ | picom.conf | Large | Medium | ⚠️ Medium | ⚠️ Medium | General Purpose |
 
