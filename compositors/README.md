@@ -55,7 +55,7 @@ For me, it's the perfect balance between power and efficiency. It doesn't requir
 - **License**: MIT
 - **Backend**: XRender only
 - **Features**: Shadows, idle opacity, damage-driven, occlusion culling. 14 AI optimizations (O(1) hash table, visual format cache, alpha picture cache, etc.)
-- **Strengths**: **4-17x faster than picom** on CPU. Minimal dependencies. Clean and auditable code. Extensive documentation (AI_OPTIMIZATIONS.md, ROADMAP.md)
+- **Strengths**: **4-17x faster than picom** on CPU. Minimal dependencies. Clean and auditable code.
 - **Weaknesses**: No vsync (most requested issue). No blur. No animations. No config file (CLI only). Intentionally broken fading. XRender only.
 - **Recommendation**: **Extreme performance** when you prioritize FPS and CPU over visual features
 
@@ -73,15 +73,21 @@ For me, it's the perfect balance between power and efficiency. It doesn't requir
 
 Download and copy the binaries to /usr/bin and ensure they are executable using chmod +x.
 
+
+### BINARIES:
+
 - [compton](compton)
 - [picom](compton)
 - [fastcompmgr](fastcompmgr)
+
+
+### CONFIG FILES:
 
 Configuration files to place in ~/.config
 
 - [compton.conf](compton.conf)
 - [picom.conf](compton.conf)
-- fastcompmgr is not needed
+- fastcompmgr configuration file is not needed
 
 ---
 
