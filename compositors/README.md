@@ -38,7 +38,8 @@ It's actively maintained and works very well; however, it's no longer as lightwe
 - **Backend**: GLX + XRender
 - **Features**: Shadows, blur (dual_kawase), rounded corners, transparency, fading, script-based animations (v12+), D-Bus, damage-driven repaint, VSync
 - **Strengths**: Most complete and compatible. Huge community. Comprehensive documentation. Powerful animation system (7 presets, scripting, cubic-bezier)
-- **Weaknesses**: Heavier than fastcompmgr (4-17x more CPU usage in benchmarks). Complex dependencies. - **Recommendation**: **General Use** — when you need maximum compatibility, documentation, and features
+- **Weaknesses**: Heavier than fastcompmgr (4-17x more CPU usage in benchmarks). Complex dependencies. 
+- **Recommendation**: **General Use** when you need maximum compatibility, documentation, and features
 
 ## FASTCOMPMGR
 
@@ -56,7 +57,7 @@ For me, it's the perfect balance between power and efficiency. It doesn't requir
 - **Features**: Shadows, idle opacity, damage-driven, occlusion culling. 14 AI optimizations (O(1) hash table, visual format cache, alpha picture cache, etc.)
 - **Strengths**: **4-17x faster than picom** on CPU. Minimal dependencies. Clean and auditable code. Extensive documentation (AI_OPTIMIZATIONS.md, ROADMAP.md)
 - **Weaknesses**: No vsync (most requested issue). No blur. No animations. No config file (CLI only). Intentionally broken fading. XRender only.
-- **Recommendation**: **Extreme performance** — when you prioritize FPS and CPU over visual features
+- **Recommendation**: **Extreme performance** when you prioritize FPS and CPU over visual features
 
 ---
 
