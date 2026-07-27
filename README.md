@@ -69,6 +69,10 @@ These files configure the **bash console** to add some features like personalize
 Copy the root.bashrc to /root/.bashrc*
 
 
+## Compositors
+
+You can add shadows, transparency, rounded corners and even animation to your windows using some of the X Compositors you can find here. Configuration files and launcher included.
+
 
 ## Sound theme
 
