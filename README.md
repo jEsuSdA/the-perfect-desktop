@@ -16,7 +16,7 @@ Fonts configuration files and howtos to allow better font rendering.
 
 [Greybird GTK theme](https://github.com/shimmerproject/Greybird) is a complete GTK+ theme for desktop.
 
-The **greybird-patched** folder contains a patched version of it. I made some patches to avoid some bugs and adding some extra features.
+The **greybird-patched** folder contains a patched version of it. I made some patches to avoid some bugs and adding some extra features. Also GTK4 support is added.
 
 You can find a XFWM4 themes too (Window decoration themes for the XFCE window manager).
 
