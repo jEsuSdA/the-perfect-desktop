@@ -55,9 +55,7 @@ Copy the root.bashrc to /root/.bashrc*
 
 You can add shadows, transparency, rounded corners and even animation to your windows using some of the X Compositors you can find here. Configuration files and launcher included.
 
-If you have problems with drop-down shadows in latest Google Chrome versions, please, change this flags ( chrome://flags/ ) to disble the "UI refresh theme" and you get a better integration and look and feel.
-
-![Google Chrome](compton-picom/google-chrome_shadows-workaround.png "Google Chrome")
+If you have problems with drop-down shadows in latest Google Chrome versions, please, change this flags ( chrome://flags/ ) to disble the "UI refresh theme" and you get a better integration and look and feel. [Google Chrome](compositors/google-chrome_shadows-workaround.png)
 
 
 ## Sound theme
