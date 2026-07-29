@@ -30,9 +30,12 @@ Or using the installation script (If you use Debian).
 
 The **papirus-patched** folder contains a patched version of it. I made some patches to add some extra features I like. I also added the ePapirus version, that was removed from official Papirus icon theme time ago.
 
-*Unzip 7z files and copy foldes to /usr/share/icons or ~/.icons/*
+*Extract the .tar.xz file and copy folders to /usr/share/icons or ~/.icons/*
 
-Or using the installation script **install-papirus.sh**.
+Or using the installation script **install-papirus.sh**:
+
+    ./install-papirus.sh                          # download + install latest
+    ./install-papirus.sh papirus-20260728.tar.xz  # install a specific local file
 
 You can also install some **Papirus extra patches** for applications like aMule, FBreader, gFTP, Remarkable, etc.
 
