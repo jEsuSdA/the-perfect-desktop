@@ -17,7 +17,7 @@ A Linux desktop customization collection by jEsuSdA. Shell scripts, GTK/icon/fon
 | `greybird-patched/` | Patched Greybird GTK theme + `install-greybird.sh` + Firefox/Thunderbird userChrome |
 | `kitty-terminal/` | `kitty.conf` (1318 lines, Adwaita Mono 9pt, tiled background, Tango colors) |
 | `papirus-patched/` | `install-papirus.sh` (downloads latest or installs local archive, supports `hardcode-tray`) + app-specific icon patches (Claws Mail, aMule, LibreOffice, etc.) |
-| `sound-theme/` | pasodoble OGG sounds + `install.sh` + `test-theme.sh` (uses `canberra-gtk-play`) |
+| `sound-theme/` | pasodoble OGG sounds + `install.sh` + `test-theme.sh` (uses `canberra-gtk-play`) + standalone notification OGG files for Thunderbird/calendar |
 | `wallpapers/` | 108 images + `montage.sh` (ImageMagick montage) |
 | `xfwm4-themes/` | Window decoration themes (`.7z`) |
 

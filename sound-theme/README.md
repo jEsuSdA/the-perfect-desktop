@@ -1,6 +1,5 @@
 # Activate sound theme in XFCE
 
-
 ## 1 Install sound theme:
 
 Run install.sh or copy pasodoble folder into 
@@ -52,7 +51,6 @@ Edit and copy this inside 52libcanberra-gtk3-module_add-to-gtk-modules
 
 
 
-
 After doing that and re-login, you must see this 
 
 	gail:atk-bridge:canberra-gtk-module
@@ -89,7 +87,6 @@ Or you can do this creating a .gtkrc-2.0 file in your $HOME with the following c
 
 	gtk-modules = "canberra-gtk-module"
 
-
 	gtk-enable-event-sounds=1
 	gtk-enable-input-feedback-sounds=1
 	gtk-sound-theme-name=pasodoble
@@ -103,7 +100,6 @@ Or putting
 in your 
 
 	~/.xprofile or ~/.xinitrc
-
 
 
 
@@ -206,7 +202,6 @@ And that's all! You can ear a nice sound as a bell in Terminal. :D
 
 
 
-
 ### gtk3
 
 Another thing you may try if you don't want to go to the gnome-settings-daemon route is create 
@@ -220,9 +215,13 @@ Another thing you may try if you don't want to go to the gnome-settings-daemon r
 
 
 
+### Additional notification sounds
+
+The `event-new-calendar.ogg` and `message-new-mail.ogg` files are standalone notification sounds. You can use them for Thunderbird, calendar apps, or any application that requires custom sound notifications — just point your app's notification settings to these files.
+
+
 ## More info
 
 - https://wiki.archlinux.org/index.php/Xfce#Sound_themes
 - https://old.reddit.com/r/xfce/comments/booaz3/how_to_make_notifications_play_a_sound/
 - https://wiki.archlinux.org/index.php/Libcanberra
-

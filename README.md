@@ -3,7 +3,7 @@ A collection of some configuration files to make your desktop easily great! ;).
 
 By [jEsuSdA](http://www.jesusda.com)
 
-![Screenshot](screenshots/the-perfect-desktop-2.png  "Screenshot")
+![Screenshot](the-perfect-desktop-2.png  "Screenshot")
 
 
 
