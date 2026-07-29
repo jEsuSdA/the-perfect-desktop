@@ -28,11 +28,11 @@ Or using the installation script (If you use Debian).
 
 [Papirus Icon theme](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme/) is a complete awesome Icon Theme.
 
-The **papirus-patched** folder contains a patched version of it. I made some patches to add some extra features I like.
+The **papirus-patched** folder contains a patched version of it. I made some patches to add some extra features I like. I also added the ePapirus version, that was removed from official Papirus icon theme time ago.
 
 *Unzip 7z files and copy foldes to /usr/share/icons or ~/.icons/*
 
-Or using the installation script (If you use Debian).
+Or using the installation script **install-papirus.sh**.
 
 You can also install some **Papirus extra patches** for applications like aMule, FBreader, gFTP, Remarkable, etc.
 
