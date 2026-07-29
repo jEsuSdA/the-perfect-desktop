@@ -9,21 +9,35 @@ A Linux desktop customization collection by jEsuSdA. Shell scripts, GTK/icon/fon
 
 | Directory | What |
 |-----------|------|
-| `bashrc/` | `user.bashrc` (Solarized prompt, git status, Java font tweaks, GTK CSD disabled via `nocsd` preload) and `root.bashrc` |
-| `compositors/` | `compositor.sh` (manages picom/compton/fastcompmgr/xfwm4), plus `picom.conf`, `compton.conf`, and the **binary compositors themselves** (committed to git) |
-| `cursors/` | Breeze cursor theme (`breeze_cursors.7z`) |
-| `extra/` | Thunar custom actions (`thunar.uca.xml`) — Markdown conversions, PDF tools, etc. |
-| `fonts/` | `fonts.conf` (hinting=true, autohint, rgb, DPI=120) + `.7z` font archives |
+| `bashrc/` | `user.bashrc` (Solarized prompt, git status, Java font tweaks, GTK CSD disabled via `nocsd` preload) and `root.bashrc`. Install: `./install.sh` |
+| `compositors/` | `compositor.sh` (manages picom/compton/fastcompmgr/xfwm4), plus `picom.conf`, `compton.conf`, and the **binary compositors themselves** (committed to git). Install: `sudo ./install.sh` |
+| `cursors/` | Breeze cursor theme (`breeze_cursors.7z`). Install: `./install.sh` |
+| `extra/` | Thunar custom actions (`thunar.uca.xml`) — Markdown conversions, PDF tools, etc. Install: `./install.sh` |
+| `fonts/` | `fonts.conf` (hinting=true, autohint, rgb, DPI=120) + `.7z` font archives. Install: `./install.sh` |
 | `greybird-patched/` | Patched Greybird GTK theme + `install-greybird.sh` + Firefox/Thunderbird userChrome |
-| `kitty-terminal/` | `kitty.conf` (1318 lines, Adwaita Mono 9pt, tiled background, Tango colors) |
-| `papirus-patched/` | `install-papirus.sh` (downloads latest or installs local archive, supports `hardcode-tray`) + app-specific icon patches (Claws Mail, aMule, LibreOffice, etc.) |
+| `kitty-terminal/` | `kitty.conf` (1318 lines, Adwaita Mono 9pt, tiled background, Tango colors). Install: `./install.sh` |
+| `papirus-patched/` | `install-papirus.sh` (downloads latest or installs local archive, supports `hardcode-tray`) + 9 app-specific icon patches (aMule, Claws Mail, FBreader, gFTP, LibreOffice, MComix, Remarkable, Thunderbird tray, Zim) + XFCE4 Weather |
 | `sound-theme/` | pasodoble OGG sounds + `install.sh` + `test-theme.sh` (uses `canberra-gtk-play`) + standalone notification OGG files for Thunderbird/calendar |
-| `wallpapers/` | 108 images + `montage.sh` (ImageMagick montage) |
-| `xfwm4-themes/` | Window decoration themes (`.7z`) |
+| `wallpapers/` | 108 images + `montage.sh` (ImageMagick montage). Install: `./install.sh` |
+| `xfce-terminal/` | Terminal background images (terminal-background-night.png, terminal-background-day.png). Install: `./install.sh` |
+| `xfwm4-themes/` | Window decoration themes (`.7z`). Install: `./install.sh` |
+
+There is also a unified runner.
+
+```sh
+# Interactive installer (prompts per component)
+./install-all.sh
+
+# Unattended install of everything
+./install-all.sh --all
+
+# Install from local repo (no download)
+./install-all.sh --local /path/to/repo
+```
 
 ## Key commands
 
-All scripts are standalone. No unified runner.
+Individual scripts:
 
 ```sh
 # Install Papirus icon theme (download mode)
@@ -33,7 +47,7 @@ sudo ./papirus-patched/install-papirus.sh --download
 sudo ./papirus-patched/install-papirus.sh --local papirus-20260728.tar.xz
 
 # Install Greybird theme
-sudo ./greybird-patched/install-greybird.sh
+sudo ./greybird-patched/install-greybird.sh Greybird-20260728.7z
 
 # Install sound theme
 sudo ./sound-theme/install.sh

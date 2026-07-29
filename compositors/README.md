@@ -71,8 +71,17 @@ For me, it's the perfect balance between power and efficiency. It doesn't requir
 
 ## INSTALLATION
 
-Download and copy the binaries to /usr/bin and ensure they are executable using chmod +x.
+### Automatic (recommended)
 
+```sh
+cd compositors && sudo ./install.sh
+```
+
+This copies the compositor binaries and `compositor.sh` to `/usr/local/bin/`, places config files in `~/.config/`, and backs up any existing files.
+
+### Manual
+
+Download and copy the binaries to `/usr/bin` and ensure they are executable using `chmod +x`.
 
 ### BINARIES:
 
@@ -80,14 +89,13 @@ Download and copy the binaries to /usr/bin and ensure they are executable using 
 - [picom](compton)
 - [fastcompmgr](fastcompmgr)
 
-
 ### CONFIG FILES:
 
-Configuration files to place in ~/.config
+Configuration files to place in `~/.config/`:
 
 - [compton.conf](compton.conf)
-- [picom.conf](compton.conf)
-- fastcompmgr configuration file is not needed
+- [picom.conf](picom.conf)
+- fastcompmgr does not need a configuration file (CLI flags only)
 
 ---
 

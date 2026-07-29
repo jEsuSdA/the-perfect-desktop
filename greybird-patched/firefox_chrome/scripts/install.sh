@@ -36,7 +36,7 @@ function saveProfile(){
 	# Create single-line user CSS files if non-existent or empty.
 	if [ -s userChrome.css ]; then
 		# Remove older theme imports
-		sed 's/@import "firefox-papirus-icon-theme.*.//g' userChrome.css | sed '/^\s*$/d' > userChrome.css
+		sed 's/@import "firefox-papirus-icon-theme.*//g' userChrome.css | sed '/^\s*$/d' > userChrome.tmp && mv userChrome.tmp userChrome.css
 		echo >> userChrome.css
 	else
 		echo >> userChrome.css

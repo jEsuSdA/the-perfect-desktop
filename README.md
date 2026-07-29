@@ -5,10 +5,26 @@ By [jEsuSdA](http://www.jesusda.com)
 
 ![Screenshot](the-perfect-desktop-2.png  "Screenshot")
 
+## Quick installation
 
+```sh
+# Interactive — prompts per component
+./install-all.sh
+
+# Unattended — install everything
+./install-all.sh --all
+
+# From a local copy (no download)
+./install-all.sh --local /path/to/repo
+```
+
+Or install individual components with the per-directory scripts below.
 
 ## Fonts
+
 Fonts configuration files and howtos to allow better font rendering.
+
+Install: `cd fonts && ./install.sh`
 
 ## THEMEs
 
@@ -22,7 +38,11 @@ You can find a XFWM4 themes too (Window decoration themes for the XFCE window ma
 
 *Unzip 7z files and copy folder to /usr/share/themes or ~/.themes/*
 
-Or using the installation script (If you use Debian).
+Or using the installation script:
+
+```sh
+cd greybird-patched && sudo ./install-greybird.sh Greybird-20260728.7z
+```
 
 ### Papirus
 
@@ -30,41 +50,45 @@ Or using the installation script (If you use Debian).
 
 The **papirus-patched** folder contains a patched version of it. I made some patches to add some extra features I like. I also added the ePapirus version, that was removed from official Papirus icon theme time ago.
 
-*Extract the .tar.xz file and copy folders to /usr/share/icons or ~/.icons/*
+Install:
 
-Or using the installation script **install-papirus.sh**:
+```sh
+# Download and install latest
+cd papirus-patched && sudo ./install-papirus.sh --download
 
-    ./install-papirus.sh                          # download + install latest
-    ./install-papirus.sh papirus-20260728.tar.xz  # install a specific local file
+# Install from a local archive
+sudo ./install-papirus.sh --local papirus-20260728.tar.xz
+```
 
-You can also install some **Papirus extra patches** for applications like aMule, FBreader, gFTP, Remarkable, etc.
+You can also install **Papirus extra patches** for applications like aMule, FBreader, gFTP, Remarkable, etc. — each has its own `install.sh` inside its subdirectory.
 
 ### XFWM4 Window Themes
 
 The **xfwm4-themes** folder contains a some themes for the XFCE Window Manager. They are bases upon the Greybird and XFWM4 main themes.
 
-
-*Unzip 7z files and copy folders to /usr/share/themes/ or ~/.themes/*
-
+Install: `cd xfwm4-themes && ./install.sh`
 
 ## Bashrc files
+
 These files configure the **bash console** to add some features like personalized and colorized prompt and some tweaks for java look and GTK+3.
 
-*Copy the user.bashrc to ~/.bashrc
-Copy the root.bashrc to /root/.bashrc*
-
+Install: `cd bashrc && ./install.sh`
 
 ## Compositors
 
 You can add shadows, transparency, rounded corners and even animation to your windows using some of the X Compositors you can find here. Configuration files and launcher included.
 
-If you have problems with drop-down shadows in latest Google Chrome versions, please, change this flags ( chrome://flags/ ) to disble the "UI refresh theme" and you get a better integration and look and feel. [Google Chrome](compositors/google-chrome_shadows-workaround.png)
+Install: `cd compositors && sudo ./install.sh` (copies binaries, configs, and `compositor.sh` to your system).
 
+Then use `compositor.sh picom` (or `compton` / `fastcompmgr` / `xfwm4`) to switch between compositors.
+
+If you have problems with drop-down shadows in latest Google Chrome versions, please, change this flags ( chrome://flags/ ) to disble the "UI refresh theme" and you get a better integration and look and feel. [Google Chrome](compositors/google-chrome_shadows-workaround.png)
 
 ## Sound theme
 
 All you need to activate sound theme into your XFCE Desktop. You know, play sounds when you do things! ;)
 
+Install: `cd sound-theme && sudo ./install.sh`
 
 # License
 

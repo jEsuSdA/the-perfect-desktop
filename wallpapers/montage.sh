@@ -1,31 +1,31 @@
-#!/bin/bash 
+#!/bin/bash
+set -e
 
-# Script que crea un montaje con todas las imágenes de frutas y verduras del proyecto
-#
-# By jEsuSdA 8)
+trap 'rm -rf temp' EXIT HUP INT TERM
 
-mkdir temp
+mkdir -p temp
+rm -f montaje.jpg
 
-rm montaje.jpg
-
-cp *.jpg temp
+for f in *.jpg; do
+    [ -f "$f" ] || continue
+    cp "$f" temp/
+done
 
 cd temp
 
-for i in *.jpg
-do
-
-	mogrify -resize 800x600^ -gravity center -extent 800x600 "$i"
-
+for i in *.jpg; do
+    [ -f "$i" ] || continue
+    mogrify -resize 800x600^ -gravity center -extent 800x600 "$i"
 done
 
 cd ..
 
-mogrify -resize 100x100 temp/*.jpg
+HAS_FILES=false
+for f in temp/*.jpg; do
+    [ -f "$f" ] && HAS_FILES=true
+done
 
-montage temp/*.jpg -geometry 100x100+7+7   montaje.jpg
-
-rm -rf temp
-
-# ;)
-
+if [ "$HAS_FILES" = true ]; then
+    mogrify -resize 100x100 temp/*.jpg
+    montage temp/*.jpg -geometry 100x100+7+7   montaje.jpg
+fi

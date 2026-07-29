@@ -1,16 +1,23 @@
 #!/bin/sh
-clear 
-echo
-echo "=================================================="
-echo "Usage: install-papirus-lo.sh"
-echo "=================================================="
-echo
-echo
+set -e
+
+SCRIPT_DIR=$(dirname "$0")
+ARCHIVE="$SCRIPT_DIR/images_sifr.zip"
+
+[ -f "$ARCHIVE" ] || { echo "Error: $ARCHIVE not found"; exit 1; }
 
 echo
-echo "Installing and configuring..."
+echo "Installing Papirus Sifr LibreOffice icon theme..."
 echo "--------------------------------------------------"
 
-su root -c "cp -R images_sifr.zip /usr/share/libreoffice/share/config/; chmod -R 775 /usr/share/libreoffice/share/config/images_sifr.zip"
+if command -v sudo >/dev/null 2>&1; then
+    sudo cp "$ARCHIVE" /usr/share/libreoffice/share/config/
+    sudo chmod 644 /usr/share/libreoffice/share/config/images_sifr.zip
+elif command -v su >/dev/null 2>&1; then
+    su root -c "cp '$ARCHIVE' /usr/share/libreoffice/share/config/ && chmod 644 /usr/share/libreoffice/share/config/images_sifr.zip"
+else
+    echo "Error: need sudo or su for installation"
+    exit 1
+fi
 
 echo "Done!"

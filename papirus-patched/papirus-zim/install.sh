@@ -1,8 +1,19 @@
 #!/bin/sh
+set -e
 
-cp -R pixmaps pixmaps-dup
-su root -c "mv -f ./pixmaps-dup/* /usr/share/zim/pixmaps/ && echo OK && exit"
-rm pixmaps-dup -rf
-read tecla
+SCRIPT_DIR=$(dirname "$0")
 
+cp -R "$SCRIPT_DIR/pixmaps" /tmp/pixmaps-dup
 
+if command -v sudo >/dev/null 2>&1; then
+    sudo mv -f /tmp/pixmaps-dup/* /usr/share/zim/pixmaps/
+elif command -v su >/dev/null 2>&1; then
+    su root -c "mv -f /tmp/pixmaps-dup/* /usr/share/zim/pixmaps/"
+else
+    echo "Error: need sudo or su for installation"
+    rm -rf /tmp/pixmaps-dup
+    exit 1
+fi
+
+rm -rf /tmp/pixmaps-dup
+echo "Done!"

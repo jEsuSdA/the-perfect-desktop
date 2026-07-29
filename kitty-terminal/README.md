@@ -5,6 +5,12 @@ A background and config file to make the  **kitty-terminal** looking awesome.
 ![Kitty Terminal](kitty-terminal.png)
 
 
-Download the terminal-kgt-background-kitty.png and kitty.conf files and copy to ~/.config/kitty
+## Installation
 
-You can edit kitty.conf file to configure your kitty terminal.
+```sh
+cd kitty-terminal && ./install.sh
+```
+
+Or manually: copy `kitty.conf` and `terminal-kgt-background-kitty.png` to `~/.config/kitty/`.
+
+You can edit `kitty.conf` to configure your terminal.

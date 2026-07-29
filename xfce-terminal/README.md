@@ -5,7 +5,13 @@ A background to configure the  **xfce4-terminal** (or other ones) looking awesom
 ![XFCE Terminal](xfce-terminal.png)
 
 
-Download the terminal-kgt-background.png file and configure xfce-terminal like that:
+## Installation
+
+```sh
+cd xfce-terminal && ./install.sh
+```
+
+Or manually: copy the background PNGs to `~/.local/share/xfce4/backgrounds/` and configure xfce-terminal like this:
 
 ![Terminal configuration](xfce-terminal-configuration.png)
 

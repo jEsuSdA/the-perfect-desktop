@@ -1,17 +1,17 @@
 #!/bin/sh
+set -e
+
+command -v sed >/dev/null 2>&1 || { echo "Error: sed not found"; exit 1; }
 
 OLDCOLOR=dfdfdf
 NEWCOLOR=6e6e6e
 
-#cp -r Symbolic Symbolic_temp
+for f in 128/*.png; do
+    [ -f "$f" ] || continue
+    sed -i s/$OLDCOLOR/$NEWCOLOR/g "$f"
+done
 
-sh -c "sed -i s/$OLDCOLOR/$NEWCOLOR/g 128/*.png"
-
-#OLDCOLOR=6e6e6
-
-sh -c "sed -i s/$OLDCOLOR/$NEWCOLOR/g 48/*.png"
-#sh -c "sed -i s/$OLDCOLOR/$NEWCOLOR/g 22/*.png"
-
-#cp -r Base Symbolic_pasodoble
-
-
+for f in 48/*.png; do
+    [ -f "$f" ] || continue
+    sed -i s/$OLDCOLOR/$NEWCOLOR/g "$f"
+done

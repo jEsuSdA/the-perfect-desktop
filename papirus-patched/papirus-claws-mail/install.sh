@@ -34,23 +34,39 @@ _msg() {
 }
 
 _rm() {
+    # backup before removal
+    if [ -d "$1" ]; then
+        _sudo mv -f "$1" "$1.bak.$(date +%Y%m%d%H%M%S)" 2>/dev/null || true
+    fi
     # removes parent directories if empty
-    _sudo rm -rf "$1"
     _sudo rmdir -p "$(dirname "$1")" 2>/dev/null || true
 }
 
 _sudo() {
     if [ -w "$DESTDIR" ] || [ -w "$(dirname "$DESTDIR")" ]; then
         "$@"
-    else
+    elif command -v sudo >/dev/null 2>&1; then
         sudo "$@"
+    elif command -v su >/dev/null 2>&1; then
+        su root -c "$*"
+    else
+        echo "Error: need sudo or su for installation" >&2
+        exit 1
     fi
 }
 
 _download() {
     _msg "Getting the latest version from GitHub ..."
-    wget -O "$temp_file" \
-        "https://github.com/PapirusDevelopmentTeam/$gh_repo/archive/$TAG.tar.gz"
+    if command -v curl >/dev/null 2>&1; then
+        curl -fsSL -o "$temp_file" \
+            "https://github.com/PapirusDevelopmentTeam/$gh_repo/archive/$TAG.tar.gz"
+    elif command -v wget >/dev/null 2>&1; then
+        wget -O "$temp_file" \
+            "https://github.com/PapirusDevelopmentTeam/$gh_repo/archive/$TAG.tar.gz"
+    else
+        echo "Error: need curl or wget for download" >&2
+        exit 1
+    fi
     _msg "Unpacking archive ..."
     tar -xzf "$temp_file" -C "$temp_dir"
 }

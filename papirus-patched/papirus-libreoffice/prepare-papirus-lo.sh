@@ -1,36 +1,27 @@
 #!/bin/sh
-clear 
-echo
-echo "=================================================="
-echo "Usage: prepare-papirus-lo.sh"
-echo "=================================================="
-echo
-echo
+set -e
+
+SCRIPT_DIR=$(dirname "$0")
 
 echo
 echo "Preparing Papirus Sifr LibreOffice icon theme..."
 echo "--------------------------------------------------"
 
+TEMP_DIR=$(mktemp -d /tmp/papirus-lo-XXXXXX)
 
-mkdir temp
-cd temp
+cp /usr/share/libreoffice/share/config/images_sifr.zip "$TEMP_DIR/"
 
-cp /usr/share/libreoffice/share/config/images_sifr.zip .
-
+cd "$TEMP_DIR"
 unzip images_sifr.zip
-
 rm images_sifr.zip
 
-../sifr-transparent.sh
+"$SCRIPT_DIR/sifr-transparent.sh"
 
-zip ../images_sifr.zip *
+zip "$SCRIPT_DIR/images_sifr.zip" ./*
 
-cd ..
+cd /
+rm -rf "$TEMP_DIR"
 
-rm -rf temp
-
-./install-papirus-lo.sh
-
-
+"$SCRIPT_DIR/install-papirus-lo.sh"
 
 echo "Done!"

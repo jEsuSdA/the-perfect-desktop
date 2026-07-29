@@ -1,22 +1,19 @@
 #!/bin/bash
+set -e
 
+command -v convert >/dev/null 2>&1 || { echo "Error: ImageMagick (convert) not found"; exit 1; }
 
-function transparent {
-
-	for i in *.png
-	do
-
-		convert "$i" -fuzz 20% -transparent white "$i"
-		#convert "$i" -fuzz 5% -transparent "#c8c9c8" "$i"
-
-	done
+transparent() {
+    for f in *.png; do
+        [ -f "$f" ] || continue
+        convert "$f" -fuzz 20% -transparent white "$f"
+    done
 }
 
-
 CDIR=$(pwd)
-for i in $(ls -R | grep :); do
-    DIR=${i%:}                    # Strip ':'
-    cd $DIR
+
+while IFS= read -r DIR; do
+    cd "$DIR"
     transparent
-    cd $CDIR
-done
+    cd "$CDIR"
+done < <(find . -type d)
