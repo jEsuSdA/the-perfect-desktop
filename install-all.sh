@@ -114,7 +114,7 @@ for f in greybird-patched/Greybird-*.7z; do
     GREYBIRD_7Z="$f"
 done
 if [ -n "$GREYBIRD_7Z" ]; then
-    run_installer "Greybird-patched GTK theme"  "greybird-patched/install-greybird.sh" "$GREYBIRD_7Z"
+    run_installer "Greybird-patched GTK theme"  "greybird-patched/install-greybird.sh" "$(basename "$GREYBIRD_7Z")"
 fi
 
 if command -v curl >/dev/null 2>&1 || command -v wget >/dev/null 2>&1; then
