@@ -47,8 +47,6 @@ fi
 
 cd "$REPO_DIR"
 
-# Ensure all scripts are executable (git may not preserve +x)
-find . -name "*.sh" -exec chmod +x {} +
 
 if [ -z "$LOCAL_PATH" ]; then
     trap 'rm -rf "$REPO_DIR"' EXIT HUP INT TERM
@@ -75,7 +73,7 @@ run_installer() {
     fi
 
     echo "  Ejecutando: $script $*"
-    (cd "$(dirname "$script")" && "./$(basename "$script")" "$@")
+    (cd "$(dirname "$script")" && bash "./$(basename "$script")" "$@")
     local ec=$?
     if [ $ec -eq 0 ]; then
         echo "  ✔ $desc — OK"
