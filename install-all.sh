@@ -47,6 +47,9 @@ fi
 
 cd "$REPO_DIR"
 
+# Ensure all scripts are executable (git may not preserve +x)
+find . -name "*.sh" -exec chmod +x {} +
+
 if [ -z "$LOCAL_PATH" ]; then
     trap 'rm -rf "$REPO_DIR"' EXIT HUP INT TERM
 fi
