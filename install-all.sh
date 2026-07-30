@@ -118,7 +118,7 @@ if [ -n "$GREYBIRD_7Z" ]; then
 fi
 
 if command -v curl >/dev/null 2>&1 || command -v wget >/dev/null 2>&1; then
-    run_installer "Papirus-patched icon theme"  "papirus-patched/install-papirus.sh" "--download"
+    run_installer "Papirus-patched icon theme"  "papirus-patched/install-papirus.sh"
 else
     echo ""
     echo "========================================"
