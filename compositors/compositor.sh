@@ -1,15 +1,19 @@
 #!/bin/bash
 #
-# Script  unificado que sirve para gestionar compositores de ventanas en XFCE
+# Script unificado que sirve para gestionar compositores de ventanas en XFCE
 #
-# ver. 20260307
+# ver. 20260823 · parámetro -watchdog: relanzar automáticamente compositor si falla en ejecución.
+# ver. 20260307 · versión inicial
 #
 # jEsuSdA 8)
 #
 # Compositories soportados:  picom, compton, fastcompmgr y xfwm4
 #
-# Uso: compositor.sh <xfwm4|picom|compton|fc|fastcompmgr|--help>
-
+# Uso: compositor.sh [--watchdog|-w] <xfwm4|picom|compton|fc|fastcompmgr|--help>
+#
+# --watchdog, -w   Activa el mecanismo de auto‑relaunch del compositor
+#                  (se relanza si se cae inesperadamente, con límite de reintentos)
+#
 
 # ============================================================================
 # CONFIGURACIÓN
@@ -55,11 +59,11 @@ notify() {
     if ! command -v notify-send >/dev/null; then
         return
     fi
-    
+
     local mensaje="$1"
     local proceso="$2"
     local urgencia="${3:-normal}"
-    
+
     if [[ -n "$proceso" ]]; then
         if pgrep -x "$proceso" >/dev/null; then
             notify-send "Gestor de Composición" "$mensaje" -i video-display
@@ -77,7 +81,7 @@ notify() {
 
 # Muestra mensaje de ayuda
 show_help() {
-    echo "Uso: $0 <compositor>"
+    echo "Uso: $0 [--watchdog|-w] <compositor>"
     echo ""
     echo "Compositores disponibles:"
     echo "  xfwm4        - Activa el compositor nativo de XFWM4 (XFCE)"
@@ -87,60 +91,62 @@ show_help() {
     echo "  fastcompmgr  - Lanza FastCompmgr (nombre completo)"
     echo "  --help, -h   - Muestra este mensaje de ayuda"
     echo ""
+    echo "Opciones:"
+    echo "  --watchdog, -w   Activa el mecanismo de auto‑relaunch del compositor"
+    echo ""
     echo "Ejemplos:"
-    echo "  $0 xfwm4     # Activa compositor nativo XFCE"
-    echo "  $0 picom     # Lanza picom compositor"
-    echo "  $0 fc        # Lanza fastcompmgr compositor"
+    echo "  $0 xfwm4                     # Activa compositor nativo XFCE"
+    echo "  $0 --watchdog picom         # Lanza picom con watchdog"
+    echo "  $0 -w fc                    # Lanza fastcompmgr con watchdog"
+}
+
+# Elimina el marcador de watchdog para un compositor dado
+clear_watchmark() {
+    rm -f "/tmp/compositor_$1.run"
 }
 
 # ============================================================================
-# FUNCIONES ESPECÍFICAS POR COMPOSITOR
+# FUNCIONES DE INICIO DE COMPOSITORES (síncronas, sin &)
 # ============================================================================
 
-# Lanza Picom compositor
-launch_picom() {
+# Inicia Picom (espera a que termine)
+start_picom() {
     if ! command -v picom >/dev/null; then
         notify "Error: picom no está instalado" "" "critical"
         exit 1
     fi
-    
+
     if [[ -n "$CONFIG_FILE" ]]; then
-        picom --config "$CONFIG_FILE" -b
+        picom --config "$CONFIG_FILE"
     else
-        picom -b
+        picom
     fi
-    
-    notify "Compositor PICOM activado." "picom"
 }
 
-# Lanza Compton compositor
-launch_compton() {
+# Inicia Compton (espera a que termine)
+start_compton() {
     if ! command -v compton >/dev/null; then
         notify "Error: compton no está instalado" "" "critical"
         exit 1
     fi
-    
+
     if [[ -n "$CONFIG_FILE" ]]; then
-        compton --config "$CONFIG_FILE" &
+        compton --config "$CONFIG_FILE"
     else
-        compton &
+        compton
     fi
-    
-    notify "Compositor COMPTON activado." "compton"
 }
 
-# Lanza FastCompmgr compositor
-launch_fastcompmgr() {
+# Inicia FastCompmgr (espera a que termine)
+start_fastcompmgr() {
     if ! command -v fastcompmgr >/dev/null; then
         notify "Error: fastcompmgr no está instalado" "" "critical"
         exit 1
     fi
-    
+
     # Flags fijos: -o opacidad, -r radio de sombra, -l desplazamiento sombra izquierda
     # -t desplazamiento sombra superior, -c habilita sombras
-    fastcompmgr -o 0.6 -r 20 -l -30 -t -25 -c &
-    
-    notify "Compositor FastComPMGR ACTIVADO" "fastcompmgr"
+    fastcompmgr -o 0.6 -r 20 -l -30 -t -25 -c
 }
 
 # Activa el compositor nativo de XFWM4
@@ -149,14 +155,14 @@ enable_xfwm4() {
         echo "Error: No se encontró xfconf-query. ¿Estás en una sesión XFCE?"
         exit 1
     fi
-    
+
     xfconf-query -c xfwm4 -p /general/use_compositing -s true
     echo "Compositor nativo XFWM4 reactivado."
-    
+
     # Verificamos si la propiedad realmente cambió a true
     local estado
     estado=$(xfconf-query -c xfwm4 -p /general/use_compositing)
-    
+
     if [[ "$estado" == "true" ]]; then
         notify "Compositor XFWM4 ACTIVADO" ""
     else
@@ -165,70 +171,161 @@ enable_xfwm4() {
 }
 
 # ============================================================================
+# WATCHDOG: lanza un componente con reintentos limitados
+# ============================================================================
+# Se activa únicamente si la variable USE_WATCHDOG está a 1.
+# Crea un marcador temporal /tmp/compositor_<nombre>.run.
+# Mientras el marcador exista:
+#   - ejecuta el compositor de forma síncrona
+#   - si termina con código != 0 y el marcador sigue ahí, cuenta un fallo
+#   - tras MAX_RETRIES fallos notifica crítico y elimina el marcador
+#   - si termina con código 0 (salida normal) elimina el marcador y sale
+#   - si el marcador se elimina externamente (cambio de compositor) sale sin reintentar
+launch_with_watchdog() {
+    local name="$1"
+    shift
+    local start_fn="$1"
+    local max_retries=3
+    local attempt=0
+
+    touch "/tmp/compositor_${name}.run"
+
+    while [[ -f "/tmp/compositor_${name}.run" ]]; do
+        # Ejecutamos la función de inicio (síncrona)
+        "$start_fn"
+        local status=$?
+
+        if [[ -f "/tmp/compositor_${name}.run" ]]; then
+            # El marcador sigue presente → el lanzamiento fue intencional
+            if (( status != 0 )); then
+                ((attempt++))
+                if (( attempt >= max_retries )); then
+                    notify "Error: $name falló tras $max_retries intentos" "" "critical"
+                    rm -f "/tmp/compositor_${name}.run"
+                    break
+                else
+                    notify "Advertencia: $name se detuvo inesperadamente, reintentando..." "" "normal"
+                    sleep 1
+                fi
+            else
+                # Salida normal
+                rm -f "/tmp/compositor_${name}.run"
+                break
+            fi
+        else
+            # Marcador eliminado por cambio de compositor o salida del script
+            break
+        fi
+    done
+}
+
+# Wrapper que decide si usar watchdog o no
+run_compositor() {
+    local name="$1"
+    shift
+    local start_fn="$1"
+
+    if (( USE_WATCHDOG )); then
+        launch_with_watchdog "$name" "$start_fn"
+    else
+        # Modo clásico: lanzar en background y notificar inmediatamente
+        "$start_fn" &
+        local pid=$!
+        wait $pid
+        local status=$?
+        if (( status == 0 )); then
+            notify "Compositor $name activado." "$name"
+        else
+            notify "Error: $name falló al iniciar." "" "critical"
+        fi
+    fi
+}
+
+# ============================================================================
 # ENTRY POINT
 # ============================================================================
 
 main() {
-    # Verificar que se proporcionó un argumento
+    # Procesar opción de watchdog
+    USE_WATCHDOG=0
+    while [[ $# -gt 0 ]]; do
+        case "$1" in
+            --watchdog|-w)
+                USE_WATCHDOG=1
+                shift
+                ;;
+            --help|-h)
+                show_help
+                exit 0
+                ;;
+            *)
+                break
+                ;;
+        esac
+    done
+
+    # Verificar que se proporcionó un argumento (el compositor)
     if [[ $# -eq 0 ]]; then
         show_help
         exit 1
     fi
-    
+
     local compositor="$1"
-    
+
     case "$compositor" in
         xfwm4)
             # --- Paso 1: Matar compositores externos ---
             kill_compositors
             wait_for_death
-            
+
             # --- Paso 2: Activar compositor nativo XFWM4 ---
             enable_xfwm4
             ;;
-            
+
         picom)
             # --- Paso 1: Desactivar compositor nativo ---
             disable_xfwm4
-            
-            # --- Paso 2: Limpiar procesos anteriores ---
+
+            # --- Paso 2: Limpiar procesos anteriores y marcadores ---
             kill_compositors
             wait_for_death
-            
+            clear_watchmark picom   # eliminar marcador previo por si queda
+
             # --- Paso 3: Lanzar Picom ---
-            launch_picom
+            run_compositor picom start_picom
             ;;
-            
+
         compton)
             # --- Paso 1: Desactivar compositor nativo ---
             disable_xfwm4
-            
-            # --- Paso 2: Limpiar procesos anteriores ---
+
+            # --- Paso 2: Limpiar procesos anteriores y marcadores ---
             kill_compositors
             wait_for_death
-            
+            clear_watchmark compton
+
             # --- Paso 3: Lanzar Compton ---
-            launch_compton
+            run_compositor compton start_compton
             ;;
-            
+
         fc|fastcompmgr)
             # --- Paso 1: Desactivar compositor nativo ---
-            # FIX: Los scripts originales no desactivaban XFWM4 para fastcompmgr
             disable_xfwm4
-            
-            # --- Paso 2: Limpiar procesos anteriores ---
+
+            # --- Paso 2: Limpiar procesos anteriores y marcadores ---
             kill_compositors
             wait_for_death
-            
+            clear_watchmark fastcompmgr
+
             # --- Paso 3: Lanzar FastCompmgr ---
-            launch_fastcompmgr
+            run_compositor fastcompmgr start_fastcompmgr
             ;;
-            
+
         --help|-h)
             show_help
             exit 0
             ;;
-            
+
         *)
             echo "Error: Compositor '$compositor' no reconocido."
             echo ""
@@ -236,7 +333,7 @@ main() {
             exit 1
             ;;
     esac
-    
+
     exit 0
 }
 
