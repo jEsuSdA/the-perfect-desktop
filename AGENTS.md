@@ -13,7 +13,7 @@ A Linux desktop customization collection by jEsuSdA. Shell scripts, GTK/icon/fon
 | `compositors/` | `compositor.sh` (manages picom/compton/fastcompmgr/xfwm4), plus `picom.conf`, `compton.conf`, and the **binary compositors themselves** (committed to git). Install: `sudo ./install.sh` |
 | `cursors/` | Breeze cursor theme (`breeze_cursors.7z`). Install: `./install.sh` |
 | `extra/` | Thunar custom actions (`thunar.uca.xml`) — Markdown conversions, PDF tools, etc. Install: `./install.sh` |
-| `fonts/` | `fonts.conf` (hinting=true, autohint, rgb, DPI=120) + `.7z` font archives. Install: `./install.sh` |
+| `fonts/` | `fonts.conf` (hinting slight + antialias only) + `.7z` font archives; `install.sh` applies XFCE Xft settings (DPI 120, grayscale AA) via `xfconf-query` (`SKIP_XFCONF=1`) and Qt5/Qt6 sync: `qt5ct`/`qt6ct` confs, `QT_QPA_PLATFORMTHEME=qt5ct` in `~/.xsessionrc`/`~/.profile`, `Xft.*` in `~/.Xresources`, apt install of `qt5ct`/`qt6ct` (`SKIP_QT=1`). Install: `./install.sh` |
 | `greybird-patched/` | Patched Greybird GTK theme + `install-greybird.sh` + Firefox/Thunderbird userChrome |
 | `kitty-terminal/` | `kitty.conf` (1318 lines, Adwaita Mono 9pt, tiled background, Tango colors). Install: `./install.sh` |
 | `papirus-patched/` | `install-papirus.sh` (downloads latest or installs local archive, supports `hardcode-tray`) + 9 app-specific icon patches (aMule, Claws Mail, FBreader, gFTP, LibreOffice, MComix, Remarkable, Thunderbird tray, Zim) + XFCE4 Weather |
